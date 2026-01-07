@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="We specialize in empowering international businesses to establish and scale in Malaysia. As a premier boutique advisory firm, TING LI GLOBAL ADVISORY provides a seamless, one-stop solution for foreign investors. From company incorporation and work permits to financial management, tax compliance coordination, and audit liaison, we navigate the local regulatory landscape so you can focus on global expansion.">
+    <title>Ting Li Global Advisory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="design.js">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <div class="container header-inner">
+        
+        <!-- Logo -->
+        <a class="brand-logo" href="index.html">
+            <img src="logo-short.png" alt="Ting Li Logo" class="logo-img">
+            <div class="logo-text-group">
+                <span class="logo-title">TING LI</span>
+                <span class="logo-subtitle">Global Advisory</span>
+            </div>
+        </a>
+    
+        <!-- Desktop Nav -->
+        <nav class="main-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          
+          
+          <!-- Dropdown -->
+          <div class="nav-item-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">
+                Services 
+                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+            <div class="dropdown-menu">
+                <a href="accounting.html" class="dropdown-item">Accounting & Bookkeeping</a>
+                <a href="secretarial.html" class="dropdown-item">Company Secretarial</a>
+                <a href="payroll.html" class="dropdown-item">Payroll Outsourcing</a>
+                <a href="taxation.html" class="dropdown-item">Taxation Services</a>
+                <a href="outsource.html" class="dropdown-item">Outsourced Accounting</a>
+                <a href="license.html" class="dropdown-item">Business License</a>
+                <div class="dropdown-divider"></div>
+                <a href="services.html" class="dropdown-item highlight-link">All Services →</a>
+            </div>
+          </div>
+          
+          <a href="foreigner.html" class="nav-link">Foreigner</a>
+          <a href="system.html" class="nav-link">Accounting Systems</a>
+          <a href="client.html" class="nav-link">Our Client</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    
+        <!-- CTA & Mobile -->
+        <div class="header-actions">
+            <a href="contact.html" class="btn btn-primary btn-sm">Request a Quote</a>
+            <button class="mobile-menu-btn">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-section">
+      <div class="hero-slideshow"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+        <div class="hero-inner animate-fade-in-up">
+          
+          <!-- Badge -->
+          <div class="hero-badge">
+            <span class="status-indicator">
+              <span class="ping"></span>
+              <span class="dot"></span>
+            </span>
+            <span class="badge-text">Global Corporate Services</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="hero-title">
+            Corporate secretarial, tax & accounting <span class="gradient-text">made practical.</span>
+          </h1>
+          
+          <!-- Subtitle -->
+          <p class="hero-subtitle">
+            Supporting local & international businesses with incorporation, compliance, tax advisory, accounting, and payroll. 
+            <span class="highlight">Local expertise, pragmatic advice.</span>
+          </p>
+
+          <!-- Buttons -->
+          <div class="hero-buttons">
+            <a href="contact.html" class="btn btn-primary btn-lg">Get Started</a>
+            <a href="services.html" class="btn btn-glass btn-lg">Explore Services</a>
+          </div>
+
+          <!-- Features (Glass Card) -->
+          <div class="hero-features-card">
+             <div class="feature-item">
+                <div class="icon-circle">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span>Company Incorporation</span>
+             </div>
+             <div class="separator"></div>
+             <div class="feature-item">
+                <div class="icon-circle">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <span>Tax Advisory (SST)</span>
+             </div>
+             <div class="separator"></div>
+             <div class="feature-item">
+                <div class="icon-circle">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                </div>
+                <span>Cloud Accounting</span>
+             </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" class="services-section">
+        
+        <!-- Grid Pattern -->
+        <div class="bg-grid"></div>
+
+        <div class="container relative-z">
+            
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2 class="section-title animate-fade-in-up">
+                    Growth driven by <br/>
+                    <span class="gradient-text-emerald">Sustainable Strategy</span>
+                </h2>
+                <p class="section-description animate-fade-in-up delay-100">
+                   We combine financial expertise with cutting-edge technology to streamline your operations and ensure total compliance.
+                </p>
+            </div>
+
+            <!-- Modern Grid Layout -->
+            <div class="services-grid">
+                
+                <!-- Card 1 -->
+                <a href="accounting.html" class="service-card animate-fade-in-up delay-100">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+                    </div>
+                    <h3 class="card-title">Accounting & Bookkeeping</h3>
+                    <p class="card-desc">Precision-driven financial record management and real-time reporting to keep your business fully compliant.</p>
+                    <div class="card-footer">
+                        Learn More <svg class="arrow-mini" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="secretarial.html" class="service-card animate-fade-in-up delay-200">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
+                    </div>
+                    <h3 class="card-title">Company Secretarial</h3>
+                    <p class="card-desc">Strategic governance and regulatory adherence ensuring your corporate structure meets all legal mandates.</p>
+                    <div class="card-footer">
+                        Learn More <svg class="arrow-mini" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="payroll.html" class="service-card animate-fade-in-up delay-300">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" /></svg>
+                    </div>
+                    <h3 class="card-title">Payroll Outsourcing</h3>
+                    <p class="card-desc">Automated payroll processing, precise tax calculations, and seamless salary disbursement.</p>
+                    <div class="card-footer">
+                        Learn More <svg class="arrow-mini" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="taxation.html" class="service-card animate-fade-in-up delay-400">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" /></svg>
+                    </div>
+                    <h3 class="card-title">Taxation Services</h3>
+                    <p class="card-desc">Expert tax planning and filing strategies designed to minimize risk and optimize fiscal efficiency.</p>
+                    <div class="card-footer">
+                        Learn More <svg class="arrow-mini" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="outsource.html" class="service-card animate-fade-in-up delay-500">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" /></svg>
+                    </div>
+                    <h3 class="card-title">Outsourced Accounting</h3>
+                    <p class="card-desc">End-to-end accounting support including monthly bookkeeping, management accounts, and reporting.</p>
+                    <div class="card-footer">
+                        Learn More <svg class="arrow-mini" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </div>
+                </a>
+                
+                <!-- Card 5 -->
+                <a href="license.html" class="service-card animate-fade-in-up delay-500">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" /></svg>
+                    </div>
+                    <h3 class="card-title">Business License</h3>
+                    <p class="card-desc">Comprehensive support for acquiring business licenses, permits, and regulatory approvals.</p>
+                    <div class="card-footer">
+                        Learn More <svg class="arrow-mini" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </div>
+                </a>
+                
+
+                <!-- Card 6: Custom -->
+                <a href="contact.html" class="service-card service-card-dark animate-fade-in-up delay-600">
+                    <div class="card-icon-wrapper dark-icon">
+                        <svg class="card-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.355 0-2.697-.056-4.024-.166-1.145-.096-2.026-1.092-2.026-2.247 0-1.133.875-2.11 2.013-2.256.54-.069 1.09-.126 1.653-.171.29-.023.584-.042.883-.057M2.25 6.75c0-1.552 1.171-2.88 2.723-3.048 2.152-.236 4.398-.372 6.69-.395.27.003.542.01.815.023 1.52.07 2.72 1.353 2.72 2.876 0 1.564-1.258 2.85-2.825 2.922-2.368.109-4.66.386-6.848.814-1.42.278-2.275 1.706-2.275 3.12v3.811l-3 3V9c0-1.042.698-1.93 1.68-2.187.31-.08.63-.146.953-.203" /></svg>
+                    </div>
+                    <h3 class="card-title text-white">Custom Advice</h3>
+                    <p class="card-desc text-slate-400">Get personalized, expert guidance tailored specifically to your unique financial situation.</p>
+                    <div class="card-footer text-emerald-400">
+                        Talk to an Expert <svg class="arrow-mini" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOREIGNER SECTION ===== -->
+    <section class="foreigner-section">
+        
+        <!-- Decorative blobs -->
+        <div class="bg-blob"></div>
+        
+        <div class="container relative-z">
+            <div class="foreigner-layout">
+                
+                <!-- Content -->
+                <div class="foreigner-content">
+                    <div class="badge-pill">Global Expansion</div>
+                    
+                    <h2 class="section-title text-left">
+                        Expand your business <br>
+                        <span class="gradient-text-emerald">to Malaysia.</span>
+                    </h2>
+                    
+                    <p class="section-description text-left">
+                        Thinking of expanding? We provide full professional guidance for foreign investors — from company incorporation to accounting, payroll, and tax compliance.
+                    </p>
+                    
+                    <!-- Feature Grid -->
+                    <div class="feature-grid">
+                        <div class="feature-box">
+                            <span class="emoji-icon">🌍</span>
+                            <span class="feature-label">Global Reach</span>
+                        </div>
+                        <div class="feature-box">
+                             <span class="emoji-icon">📑</span>
+                            <span class="feature-label">Fast Setup</span>
+                        </div>
+                        <div class="feature-box">
+                             <span class="emoji-icon">🛡️</span>
+                            <span class="feature-label">Compliant</span>
+                        </div>
+                    </div>
+
+                    <a href="foreigner.html" class="btn btn-dark btn-lg">Start Incorporation</a>
+                </div>
+
+                <!-- Image -->
+                <div class="foreigner-image-wrapper">
+                    <div class="image-card">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop" alt="Foreigner Services" class="img-fluid">
+                        <div class="image-overlay"></div>
+                        <div class="image-caption">
+                            <p class="caption-title">One-Stop Solution</p>
+                            <p class="caption-subtitle">For International Investors</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+     <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          
+          <!-- Brand -->
+          <div class="footer-col brand-col">
+            <div class="footer-brand">
+               <img src="logo-short.png" alt="Ting Li Logo" class="logo-img">
+            <div class="logo-text-group">
+                <span class="logo-title">TING LI</span>
+                <span class="logo-subtitle">Global Advisory</span>
+            </div>
+            </div>
+            <p class="footer-desc">
+              Empowering businesses with precise financial strategies and compliant corporate structures.
+            </p>
+          </div>
+
+          <!-- Links -->
+          <div class="footer-col">
+            <h4 class="footer-heading">Services</h4>
+            <ul class="footer-links">
+              <li><a href="accounting.html">Accounting & Bookkeeping</a></li>
+              <li><a href="secretarial.html">Secretarial</a></li>
+              <li><a href="payroll.html">Payroll Outsourcing</a></li>
+              <li><a href="taxation.html">Taxation Services</a></li>
+              <li><a href="outsource.css">Outsourced Accounting</a></li>
+              <li><a href="license.html">Business Licensing</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Company</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Our Expertise</a></li>
+              <li><a href="system.html">Accounting Systems</a></li>
+              <li><a href="foreigner.html">Foreigner</a></li>
+              
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-col">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-contact">
+            <li>
+               <span>📍 Kuala Lumpur · Malaysia</span>
+               <span><br></span>
+            </li>
+            <li>
+               <span>📞+(60)17-871 3922</span>
+               <span></span>
+            </li>
+            <li>
+               <span>✉️</span>
+               <span>info@tingliglobal.com</span>
+            </li>
+          </ul>
+        </div>
+
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Ting Li Global Advisory 202603002384 (003809700-U). All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

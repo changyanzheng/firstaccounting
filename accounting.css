@@ -1,0 +1,224 @@
+/* =========================================
+   ACCOUNTING PAGE STYLES
+   ========================================= */
+
+/* --- Accounting Services Section (Split Layout) --- */
+.acct-section {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+}
+
+.acct-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .acct-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Left Content (Sticky) */
+.acct-left {
+  flex: 1;
+  position: sticky;
+  top: 120px; /* Stick below header */
+}
+
+.acct-left h2 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.acct-left p {
+  font-size: 1.125rem;
+  color: #64748b;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Right Content (Grid Boxes) */
+.acct-right {
+  flex: 1.2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .acct-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.acct-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.acct-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #10b981; /* Emerald Top Border */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.acct-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  border-color: #cbd5e1;
+}
+
+.acct-box:hover::before {
+  transform: scaleX(1);
+}
+
+.acct-box h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.acct-box p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Process Section (Timeline/Steps) --- */
+.process-section {
+  padding: 6rem 0;
+  background-color: white;
+  border-top: 1px solid #e2e8f0;
+}
+
+.process-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .process-container {
+    flex-direction: row;
+    gap: 6rem;
+  }
+}
+
+/* Image Side */
+.process-image {
+  flex: 1;
+  width: 100%;
+}
+
+.process-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: rotate(-2deg);
+  transition: transform 0.5s ease;
+}
+
+.process-image:hover img {
+  transform: rotate(0deg);
+}
+
+/* Content Side */
+.process-content {
+  flex: 1;
+}
+
+.process-content h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.process-content h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #10b981;
+  border-radius: 2px;
+}
+
+/* Steps */
+.process-step {
+  margin-bottom: 2.5rem;
+  padding-left: 2.5rem;
+  border-left: 3px solid #e2e8f0;
+  position: relative;
+}
+
+.process-step:last-child {
+  margin-bottom: 0;
+  border-left-color: transparent; /* Stop line at last item */
+}
+
+.process-step::before {
+  content: "";
+  position: absolute;
+  left: -11px; /* Center on the 3px border */
+  top: 4px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 4px solid white;
+  box-shadow: 0 0 0 1px #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.process-step:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px #d1fae5;
+}
+
+.process-step h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.process-step p {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+}

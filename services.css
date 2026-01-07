@@ -1,0 +1,180 @@
+/* =========================================
+   ALL SERVICES PAGE STYLES
+   ========================================= */
+
+/* --- Banner Image --- */
+.services-bg {
+    background-image: url('servicehome.jpg'); /* Reuse existing image */
+    /* Fallback styles inherited from payroll.css */
+}
+
+/* ================= SERVICES LIST SECTION ================= */
+.services-list-section {
+    padding: 6rem 0;
+    background-color: #f8fafc; /* Very light slate bg */
+}
+
+/* Intro Text */
+.services-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+}
+
+.services-intro h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.divider-line {
+    width: 60px;
+    height: 4px;
+    background-color: #10b981; /* Emerald */
+    margin: 0 auto 1.5rem auto;
+    border-radius: 2px;
+}
+
+.services-intro p {
+    font-size: 1.125rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Main Grid */
+.services-main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .services-main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-main-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Service Card Design */
+.main-service-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center alignment */
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none; /* Remove link underline */
+    height: 100%; /* Equal height cards */
+}
+
+/* Hover Effects */
+.main-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    border-color: #10b981; /* Green border on hover */
+}
+
+/* Icon / Image Wrapper */
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0fdf4; /* Light emerald bg */
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.main-service-card:hover .icon-wrapper {
+    transform: scale(1.1);
+    background-color: #d1fae5;
+}
+
+.icon-wrapper img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    /* Apply a filter to unify icon colors if they are diverse PNGs */
+    /* filter: hue-rotate(140deg) brightness(0.9); */ 
+}
+
+/* Text Icon fallback */
+.text-icon {
+    font-size: 2.5rem;
+}
+
+/* Content */
+.card-content h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+}
+
+.main-service-card:hover .card-content h3 {
+    color: #059669; /* Dark emerald */
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Fake Link Button */
+.learn-more-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #10b981;
+    margin-top: auto; /* Push to bottom */
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.main-service-card:hover .learn-more-link {
+    transform: translateX(5px);
+    color: #047857;
+}
+
+/* Highlight Card (Foreigner) */
+.highlight-card {
+    background-color: #0f172a; /* Dark background */
+    border-color: #1e293b;
+}
+
+.highlight-card:hover {
+    border-color: #334155;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-card .icon-wrapper {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.highlight-card .card-content h3 {
+    color: #ffffff;
+}
+
+.highlight-card .card-content p {
+    color: #94a3b8;
+}
+
+.highlight-card:hover .card-content h3 {
+    color: #34d399;
+}

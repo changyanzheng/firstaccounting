@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - TINGLI GLOBAL ADVISORY</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="design.css">       <!-- Global Styles (Fixes Alignment) -->
+  <link rel="stylesheet" href="contact.css">      <!-- Page Specific Styles -->
+</head>
+<body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <div class="container header-inner">
+        
+        <!-- Logo -->
+        <a class="brand-logo" href="index.html">
+            <img src="logo-short.png" alt="Ting Li Logo" class="logo-img">
+            <div class="logo-text-group">
+                <span class="logo-title">TING LI</span>
+                <span class="logo-subtitle">Global Advisory</span>
+            </div>
+        </a>
+    
+        <!-- Desktop Nav -->
+        <nav class="main-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          
+          
+          <!-- Dropdown -->
+          <div class="nav-item-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">
+                Services 
+                <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+            <div class="dropdown-menu">
+                <a href="accounting.html" class="dropdown-item">Accounting & Bookkeeping</a>
+                <a href="secretarial.html" class="dropdown-item">Company Secretarial</a>
+                <a href="payroll.html" class="dropdown-item">Payroll Outsourcing</a>
+                <a href="taxation.html" class="dropdown-item">Taxation Services</a>
+                <a href="outsource.html" class="dropdown-item">Outsourced Accounting</a>
+                <a href="license.html" class="dropdown-item">Business License</a>
+                <div class="dropdown-divider"></div>
+                <a href="services.html" class="dropdown-item highlight-link">All Services →</a>
+            </div>
+          </div>
+          
+          <a href="foreigner.html" class="nav-link">Foreigner</a>
+          <a href="system.html" class="nav-link">Accounting Systems</a>
+          <a href="client.html" class="nav-link">Our Client</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    
+        <!-- CTA & Mobile -->
+        <div class="header-actions">
+            <a href="contact.html" class="btn btn-primary btn-sm">Request a Quote</a>
+            <button class="mobile-menu-btn">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+      </div>
+    </header>
+
+  <!-- Banner -->
+  <section class="contact-banner">
+    <div class="banner-overlay">
+      <h1>Contact Us</h1>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Wrapped in container for alignment -->
+    <div class="container">
+        <section class="contact-grid section-padding">
+          <!-- Left Side -->
+          <div class="contact-info">
+            <h3 class="contact-title">Offices</h3>
+            
+    
+            <h3 class="contact-title">Business Hours</h3>
+            <p>Mon – Sun: 9:00am – 6:00pm</p>
+    
+            <h3 class="contact-title">Email</h3>
+            <p>info@tingliglobal.com</p>
+
+            <h3 class="contact-title">Location</h3>
+            <p>Kuala Lumpur · Malaysia</p>
+    
+            
+          </div>
+    
+    
+          <!-- Right Side: Quote Form -->
+          <div class="quote-form-wrap">
+            <h3>Request a Quote</h3>
+            <!-- Formspree action -->
+            <form class="quote-form" action="https://formspree.io/f/xnjnevgr" method="POST">
+              <input type="hidden" name="_to" value="info@tingliglobal.com">
+              <input type="hidden" name="_subject" value="New Website Enquiry – Ting Li Global Advisory">
+
+              <label for="q-name">Name</label>
+              <input id="q-name" name="name" type="text" required/>
+            
+              <label for="q-email">Email</label>
+              <input id="q-email" name="email" type="email" required/>
+            
+              <label for="q-phone">Phone Number</label>
+              <div class="phone-select">
+                <div class="custom-select">
+                  <div class="selected-option">
+                    <img src="malaysia.png" alt="MY">
+                    <span class="country-name">Malaysia</span>
+                    <span class="country-code">(+60)</span>
+                  </div>
+                  <ul class="options">
+                    <li data-code="+60" data-name="Malaysia" data-flag="malaysia.png">Malaysia (+60)</li>
+                    <li data-code="+86" data-name="China" data-flag="china.png">China (+86)</li>
+                    <li data-code="+886" data-name="Taiwan" data-flag="taiwan.png">Taiwan (+886)</li>
+                    <li data-code="+852" data-name="HongKong" data-flag="hk.png">Hong Kong (+852)</li>
+                    <li data-code="+44" data-name="UK" data-flag="uk.png">United Kingdom (+44)</li>
+                    <li data-code="+1" data-name="United States" data-flag="usa.png">United States (+1)</li>
+                    <li data-code="+62" data-name="Indonesia" data-flag="indonesia.png">Indonesia (+62)</li>
+                    <li data-code="+65" data-name="Singapore" data-flag="singapore.png">Singapore (+65)</li>
+                    <li data-code="+61" data-name="Australia" data-flag="australia.png">Australia (+61)</li>
+                    <li data-code="+66" data-name="Thailand" data-flag="thailand.png">Thailand (+66)</li>
+                  </ul>
+                </div>
+                <input id="q-phone" 
+                   name="phone" 
+                   type="tel" 
+                   placeholder="Enter number" 
+                   inputmode="numeric"
+                   pattern="\d*"
+                   maxlength="10"
+                   required/>
+            
+                <input type="hidden" id="q-country" name="country" value="Malaysia"/>
+                <!-- Hidden input to store dial code separately -->
+                <input type="hidden" id="q-dialcode" name="dial_code" value="+60"/>
+              </div>
+            
+              <label for="q-company">Company (optional)</label>
+              <textarea id="q-company" name="company"></textarea>
+            
+              <label for="q-message">Message</label>
+              <textarea id="q-message" name="message" required></textarea>
+            
+              <button class="mtn primary" type="submit">Send Request</button>
+            </form>
+          </div>
+        </section>
+    </div>
+
+    <!-- Floating WhatsApp Button (Movable) -->
+    <a href="https://wa.me/60178713922" target="_blank" class="whatsapp-float">
+      <img src="whatsapp-icon.png" alt="WhatsApp" draggable="false">
+    </a>
+
+  </main>
+
+ <script>
+    // Country Select Logic
+    const select = document.querySelector('.custom-select');
+    const selected = select.querySelector('.selected-option');
+    const options = select.querySelector('.options');
+    const phoneInput = document.querySelector('#q-phone');
+    const countryInput = document.querySelector('#q-country');
+    const dialCodeInput = document.querySelector('#q-dialcode');
+
+    if (select) {
+        selected.addEventListener('click', () => {
+          options.classList.toggle('active');
+        });
+    
+        options.querySelectorAll('li').forEach(option => {
+          option.addEventListener('click', () => {
+            const code = option.dataset.code;
+            const name = option.dataset.name;
+            const flag = option.dataset.flag;
+    
+            selected.querySelector('img').src = flag;
+            selected.querySelector('.country-name').textContent = name;
+            selected.querySelector('.country-code').textContent = `(${code})`;
+    
+            // Removed: phoneInput.value = code + " "; 
+            // Instead we update the hidden dial code input
+            if(dialCodeInput) {
+                dialCodeInput.value = code;
+            }
+            countryInput.value = name;
+    
+            options.classList.remove('active');
+          });
+        });
+    
+        document.addEventListener('click', (e) => {
+          if (!select.contains(e.target)) options.classList.remove('active');
+        });
+    }
+
+    if (document.getElementById("q-phone")) {
+        document.getElementById("q-phone").addEventListener("input", function () {
+            // Only allow digits to ensure max length of 10 applies to phone number only
+            this.value = this.value.replace(/\D/g, ""); 
+        });
+    }
+
+    // Draggable WhatsApp Button Logic
+    const waBtn = document.querySelector('.whatsapp-float');
+    let isDragging = false;
+    let dragStartX, dragStartY;
+    let initialLeft, initialTop;
+
+    if (waBtn) {
+        const startDrag = (e) => {
+            // Only left click allows drag
+            if (e.type === 'mousedown' && e.button !== 0) return;
+
+            isDragging = false;
+            const clientX = e.clientX || e.touches[0].clientX;
+            const clientY = e.clientY || e.touches[0].clientY;
+            
+            dragStartX = clientX;
+            dragStartY = clientY;
+
+            const rect = waBtn.getBoundingClientRect();
+            initialLeft = rect.left;
+            initialTop = rect.top;
+
+            // Switch to fixed positioning relative to top/left for movement
+            waBtn.style.bottom = 'auto';
+            waBtn.style.right = 'auto';
+            waBtn.style.left = `${initialLeft}px`;
+            waBtn.style.top = `${initialTop}px`;
+
+            document.addEventListener('mousemove', onDrag);
+            document.addEventListener('touchmove', onDrag, { passive: false });
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('touchend', endDrag);
+        };
+
+        const onDrag = (e) => {
+            const clientX = e.clientX || e.touches[0].clientX;
+            const clientY = e.clientY || e.touches[0].clientY;
+            const deltaX = clientX - dragStartX;
+            const deltaY = clientY - dragStartY;
+
+            // Threshold to detect drag vs click (5px)
+            if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
+                isDragging = true;
+            }
+
+            if (isDragging) {
+                e.preventDefault(); // Prevent scrolling
+                waBtn.style.left = `${initialLeft + deltaX}px`;
+                waBtn.style.top = `${initialTop + deltaY}px`;
+            }
+        };
+
+        const endDrag = () => {
+            document.removeEventListener('mousemove', onDrag);
+            document.removeEventListener('touchmove', onDrag);
+            document.removeEventListener('mouseup', endDrag);
+            document.removeEventListener('touchend', endDrag);
+        };
+
+        waBtn.addEventListener('mousedown', startDrag);
+        waBtn.addEventListener('touchstart', startDrag, { passive: false });
+
+        // Prevent link navigation if dragged
+        waBtn.addEventListener('click', (e) => {
+            if (isDragging) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
+    }
+  </script>
+
+   <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          
+          <!-- Brand -->
+          <div class="footer-col brand-col">
+            <div class="footer-brand">
+               <img src="logo-short.png" alt="Ting Li Logo" class="logo-img">
+            <div class="logo-text-group">
+                <span class="logo-title">TING LI</span>
+                <span class="logo-subtitle">Global Advisory</span>
+            </div>
+            </div>
+            <p class="footer-desc">
+              Empowering businesses with precise financial strategies and compliant corporate structures.
+            </p>
+          </div>
+
+          <!-- Links -->
+          <div class="footer-col">
+            <h4 class="footer-heading">Services</h4>
+            <ul class="footer-links">
+              <li><a href="accounting.html">Accounting & Bookkeeping</a></li>
+              <li><a href="secretarial.html">Secretarial</a></li>
+              <li><a href="payroll.html">Payroll Outsourcing</a></li>
+              <li><a href="taxation.html">Taxation Services</a></li>
+              <li><a href="outsource.html">Outsourced Accounting</a></li>
+              <li><a href="license.html">Business Licensing</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Company</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Our Expertise</a></li>
+              <li><a href="system.html">Accounting Systems</a></li>
+              <li><a href="foreigner.html">Foreigner</a></li>
+              
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-col">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-contact">
+            <li>
+               <span>📍 Kuala Lumpur · Malaysia</span>
+               <span><br></span>
+            </li>
+            <li>
+               <span>📞+(60)17-871 3922</span>
+               <span></span>
+            </li>
+            <li>
+               <span>✉️</span>
+               <span>info@tingliglobal.com</span>
+            </li>
+          </ul>
+        </div>
+
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Ting Li Global Advisory 202603002384 (003809700-U). All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
