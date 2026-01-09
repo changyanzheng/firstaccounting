@@ -502,9 +502,9 @@ a { text-decoration: none; color: inherit; }
 .delay-600 { animation-delay: 600ms; }
 
 /* Mobile Menu Logic */
-/* Mobile Menu - Clean List Version */
+/* Mobile Menu - Final Layout Fix */
 @media (max-width: 1024px) {
-    /* 1. Main Container */
+    /* 1. Main Menu Container */
     .main-nav {
         display: none;
         flex-direction: column;
@@ -513,7 +513,7 @@ a { text-decoration: none; color: inherit; }
         top: 100%;
         left: 0;
         width: 100%;
-        padding: 20px;
+        padding: 20px 0; /* Vertical padding only */
         box-shadow: 0 10px 15px rgba(0,0,0,0.5);
         z-index: 1000;
         border-top: 1px solid rgba(255,255,255,0.1);
@@ -525,43 +525,57 @@ a { text-decoration: none; color: inherit; }
         display: flex;
     }
 
-    /* 2. Main Links (Home, About, etc.) */
+    /* 2. Main Links (Home, About, Foreigner) */
     .nav-link {
         display: block;
-        padding: 15px 0;
+        padding: 15px 20px; /* Add side padding */
         border-bottom: 1px solid rgba(255,255,255,0.1);
         color: #ffffff !important;
         font-weight: 600;
         width: 100%;
     }
 
-    /* 3. THE FIX: Make Services a clean sub-list */
+    /* 3. NEW FIX: Fix the Container stacking */
+    .nav-item-dropdown {
+        display: block !important; /* Forces vertical stacking */
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 4. Fix the "Services" Title inside the dropdown */
+    .nav-item-dropdown .nav-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* 5. The Sub-Menu List (Indented) */
     .dropdown-menu {
-        position: static;      /* Sits nicely in the list */
-        display: block;        /* Always visible (Standard mobile pattern) */
+        position: static;
+        display: block;
         visibility: visible;
         opacity: 1;
         width: 100%;
-        box-shadow: none;      /* Remove the shadow */
-        background-color: transparent; /* Transparent background */
-        padding: 5px 0 5px 20px;       /* Indent the list to the right */
+        box-shadow: none;
+        background-color: rgba(0,0,0,0.2); /* Darker background for sub-area */
+        padding: 0;
         margin: 0;
         border: none;
         transform: none;
     }
 
-    /* 4. Sub-Links (Slightly smaller & dimmer) */
+    /* 6. Sub-Menu Items (The List) */
     .dropdown-item {
-        color: rgba(255,255,255,0.7) !important; /* 70% White (Grey-ish) */
-        font-size: 0.9rem;    /* Slightly smaller */
-        padding: 10px 0;      /* Space them out */
-        border-bottom: none;  /* No divider lines for sub-items */
+        color: rgba(255,255,255,0.8) !important; /* Soft White */
+        font-size: 0.95rem;
+        padding: 12px 0 12px 40px; /* Deep indentation (40px) */
+        border-bottom: 1px solid rgba(255,255,255,0.05);
         display: block;
     }
     
     .dropdown-item:hover {
-        color: #34d399 !important; /* Bright Green on touch */
-        padding-left: 5px;
-        transition: all 0.2s;
+        color: #34d399 !important;
+        background-color: rgba(255,255,255,0.05);
     }
 }
