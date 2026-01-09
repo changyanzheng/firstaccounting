@@ -502,15 +502,13 @@ a { text-decoration: none; color: inherit; }
 .delay-600 { animation-delay: 600ms; }
 
 /* Mobile Menu Logic */
-/* Mobile Menu Logic */
+/* Mobile Menu Logic - FIXED FINAL VERSION */
 @media (max-width: 1024px) {
+    /* 1. Main Menu Container */
     .main-nav {
-        display: none; /* Hidden by default */
+        display: none;
         flex-direction: column;
-        
-        /* 1. CHANGE BACKGROUND TO DARK GREEN */
-        background-color: #0e2e1e; 
-        
+        background-color: #0e2e1e; /* Dark Green Background */
         position: absolute;
         top: 100%;
         left: 0;
@@ -519,27 +517,56 @@ a { text-decoration: none; color: inherit; }
         box-shadow: 0 10px 15px rgba(0,0,0,0.5);
         z-index: 1000;
         border-top: 1px solid rgba(255,255,255,0.1);
+        overflow-y: auto; /* Allows scrolling if menu is long */
+        max-height: 80vh; 
     }
 
-    /* Show the menu when active */
     .main-nav.active {
         display: flex;
     }
-    
-    /* 2. FORCE TEXT TO BE WHITE */
-    .main-nav a {
+
+    /* 2. Main Links (Home, About, etc.) */
+    .nav-link {
         display: block;
         padding: 15px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1); /* Light divider line */
-        color: #ffffff !important; /* This makes the text visible! */
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        color: #ffffff !important; /* Force White Text */
         font-weight: 500;
+        width: 100%;
+    }
+
+    /* 3. FIX THE "SERVICES" DROPDOWN BOX */
+    .dropdown-menu {
+        position: static; /* Stop floating! Push content down instead */
+        opacity: 1; 
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.3); /* Slightly darker background to show it's a sub-menu */
+        width: 100%;
+        padding: 10px 0 10px 20px; /* Indent the sub-links */
+        border: none;
+        border-radius: 0;
+        min-width: unset;
+        left: 0;
+    }
+
+    /* 4. Fix Dropdown Links (Accounting, Secretarial, etc.) */
+    .dropdown-item {
+        color: #cccccc !important; /* Light Grey text for sub-items */
+        padding: 12px 0;
+        font-size: 0.9rem;
     }
     
-    /* Optional: Green hover effect */
-    .main-nav a:hover {
-        color: #34d399 !important;
-        padding-left: 10px;
-        transition: all 0.3s;
+    .dropdown-item:hover {
+        color: #34d399 !important; /* Green on touch */
+        background: transparent;
+    }
+
+    /* Hide the little arrow icon on mobile if it looks messy */
+    .arrow-icon {
+        float: right;
+        margin-right: 10px;
     }
 }
 
