@@ -502,13 +502,13 @@ a { text-decoration: none; color: inherit; }
 .delay-600 { animation-delay: 600ms; }
 
 /* Mobile Menu Logic */
-/* Mobile Menu Logic - Black Text Version */
+/* Mobile Menu - Clean List Version */
 @media (max-width: 1024px) {
-    /* 1. Main Menu Container (Dark Green) */
+    /* 1. Main Container */
     .main-nav {
         display: none;
         flex-direction: column;
-        background-color: #0e2e1e; /* Matches Header */
+        background-color: #0e2e1e; /* Dark Green */
         position: absolute;
         top: 100%;
         left: 0;
@@ -525,49 +525,43 @@ a { text-decoration: none; color: inherit; }
         display: flex;
     }
 
-    /* 2. Main Links (White Text) */
+    /* 2. Main Links (Home, About, etc.) */
     .nav-link {
         display: block;
         padding: 15px 0;
         border-bottom: 1px solid rgba(255,255,255,0.1);
-        color: #ffffff !important; /* Main links are WHITE */
-        font-weight: 500;
+        color: #ffffff !important;
+        font-weight: 600;
         width: 100%;
     }
 
-    /* 3. Dropdown Box (White Background) */
+    /* 3. THE FIX: Make Services a clean sub-list */
     .dropdown-menu {
-        position: static; /* IMPORTANT: Stops it from floating over other links */
-        float: none;
-        width: 100%;
-        box-shadow: none;
-        
-        /* Background is WHITE so we can see Black Text */
-        background-color: #ffffff; 
-        
-        padding: 10px 0 10px 20px; /* Indent slightly */
-        margin-top: 10px;
-        margin-bottom: 10px;
-        border-radius: 6px;
+        position: static;      /* Sits nicely in the list */
+        display: block;        /* Always visible (Standard mobile pattern) */
         visibility: visible;
         opacity: 1;
+        width: 100%;
+        box-shadow: none;      /* Remove the shadow */
+        background-color: transparent; /* Transparent background */
+        padding: 5px 0 5px 20px;       /* Indent the list to the right */
+        margin: 0;
+        border: none;
         transform: none;
     }
 
-    /* 4. Dropdown Text Colors (Black -> Green) */
+    /* 4. Sub-Links (Slightly smaller & dimmer) */
     .dropdown-item {
-        /* "Black First" */
-        color: #000000 !important; 
-        font-weight: 600;
-        padding: 12px 0;
+        color: rgba(255,255,255,0.7) !important; /* 70% White (Grey-ish) */
+        font-size: 0.9rem;    /* Slightly smaller */
+        padding: 10px 0;      /* Space them out */
+        border-bottom: none;  /* No divider lines for sub-items */
         display: block;
     }
     
     .dropdown-item:hover {
-        /* "Green after point" */
-        color: #10b981 !important; 
-        padding-left: 5px; /* slight movement */
+        color: #34d399 !important; /* Bright Green on touch */
+        padding-left: 5px;
         transition: all 0.2s;
     }
 }
-
