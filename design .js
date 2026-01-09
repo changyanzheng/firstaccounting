@@ -49,12 +49,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 80 * idx);
   });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.main-nav');
 
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', function() {
+            // This toggles the menu on and off
+            nav.classList.toggle('active');
+            
+            // Optional: This changes the icon from 3 lines to an 'X'
+            mobileBtn.classList.toggle('open');
+        });
+    }
+});
 
 
 
 
 });
+
 
 
 
