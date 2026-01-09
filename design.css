@@ -498,4 +498,25 @@ a { text-decoration: none; color: inherit; }
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
+
 .delay-600 { animation-delay: 600ms; }
+
+/* Mobile Menu Logic */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* When the JS adds this class, show the menu */
+    .main-nav.active {
+        display: flex;
+    }
+}
