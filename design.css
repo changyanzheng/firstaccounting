@@ -502,13 +502,13 @@ a { text-decoration: none; color: inherit; }
 .delay-600 { animation-delay: 600ms; }
 
 /* Mobile Menu Logic */
-/* Mobile Menu Logic - FIXED FINAL VERSION */
+/* Mobile Menu Logic - Black Text Version */
 @media (max-width: 1024px) {
-    /* 1. Main Menu Container */
+    /* 1. Main Menu Container (Dark Green) */
     .main-nav {
         display: none;
         flex-direction: column;
-        background-color: #0e2e1e; /* Dark Green Background */
+        background-color: #0e2e1e; /* Matches Header */
         position: absolute;
         top: 100%;
         left: 0;
@@ -517,7 +517,7 @@ a { text-decoration: none; color: inherit; }
         box-shadow: 0 10px 15px rgba(0,0,0,0.5);
         z-index: 1000;
         border-top: 1px solid rgba(255,255,255,0.1);
-        overflow-y: auto; /* Allows scrolling if menu is long */
+        overflow-y: auto;
         max-height: 80vh; 
     }
 
@@ -525,48 +525,49 @@ a { text-decoration: none; color: inherit; }
         display: flex;
     }
 
-    /* 2. Main Links (Home, About, etc.) */
+    /* 2. Main Links (White Text) */
     .nav-link {
         display: block;
         padding: 15px 0;
         border-bottom: 1px solid rgba(255,255,255,0.1);
-        color: #ffffff !important; /* Force White Text */
+        color: #ffffff !important; /* Main links are WHITE */
         font-weight: 500;
         width: 100%;
     }
 
-    /* 3. FIX THE "SERVICES" DROPDOWN BOX */
+    /* 3. Dropdown Box (White Background) */
     .dropdown-menu {
-        position: static; /* Stop floating! Push content down instead */
-        opacity: 1; 
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        background-color: rgba(0, 0, 0, 0.3); /* Slightly darker background to show it's a sub-menu */
+        position: static; /* IMPORTANT: Stops it from floating over other links */
+        float: none;
         width: 100%;
-        padding: 10px 0 10px 20px; /* Indent the sub-links */
-        border: none;
-        border-radius: 0;
-        min-width: unset;
-        left: 0;
+        box-shadow: none;
+        
+        /* Background is WHITE so we can see Black Text */
+        background-color: #ffffff; 
+        
+        padding: 10px 0 10px 20px; /* Indent slightly */
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
     }
 
-    /* 4. Fix Dropdown Links (Accounting, Secretarial, etc.) */
+    /* 4. Dropdown Text Colors (Black -> Green) */
     .dropdown-item {
-        color: #cccccc !important; /* Light Grey text for sub-items */
+        /* "Black First" */
+        color: #000000 !important; 
+        font-weight: 600;
         padding: 12px 0;
-        font-size: 0.9rem;
+        display: block;
     }
     
     .dropdown-item:hover {
-        color: #34d399 !important; /* Green on touch */
-        background: transparent;
-    }
-
-    /* Hide the little arrow icon on mobile if it looks messy */
-    .arrow-icon {
-        float: right;
-        margin-right: 10px;
+        /* "Green after point" */
+        color: #10b981 !important; 
+        padding-left: 5px; /* slight movement */
+        transition: all 0.2s;
     }
 }
 
