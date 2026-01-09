@@ -502,21 +502,44 @@ a { text-decoration: none; color: inherit; }
 .delay-600 { animation-delay: 600ms; }
 
 /* Mobile Menu Logic */
-@media (max-width: 768px) {
+/* Mobile Menu Logic */
+@media (max-width: 1024px) {
     .main-nav {
-        display: none; /* Hidden by default on mobile */
+        display: none; /* Hidden by default */
         flex-direction: column;
-        width: 100%;
+        
+        /* 1. CHANGE BACKGROUND TO DARK GREEN */
+        background-color: #0e2e1e; 
+        
         position: absolute;
         top: 100%;
         left: 0;
-        background: white;
+        width: 100%;
         padding: 20px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+        z-index: 1000;
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* When the JS adds this class, show the menu */
+    /* Show the menu when active */
     .main-nav.active {
         display: flex;
     }
+    
+    /* 2. FORCE TEXT TO BE WHITE */
+    .main-nav a {
+        display: block;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Light divider line */
+        color: #ffffff !important; /* This makes the text visible! */
+        font-weight: 500;
+    }
+    
+    /* Optional: Green hover effect */
+    .main-nav a:hover {
+        color: #34d399 !important;
+        padding-left: 10px;
+        transition: all 0.3s;
+    }
 }
+
