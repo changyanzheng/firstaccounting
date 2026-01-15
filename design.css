@@ -2,7 +2,6 @@
    1. VARIABLES & RESET
    ========================================= */
 :root {
-  /* Colors */
   --primary: #10b981; 
   --primary-hover: #059669; 
   --primary-light: #ecfdf5; 
@@ -12,26 +11,19 @@
   --slate-400: #94a3b8;
   --slate-50: #f8fafc;
   --white: #ffffff;
-  
-  /* Footer Background - Matching Header (Dark Emerald) */
   --bg-emerald-dark: #0e2e1e;
-
-  /* Gradients */
   --grad-emerald: linear-gradient(to right, #059669, #14b8a6, #06b6d4); 
   --grad-logo: linear-gradient(to bottom right, #10b981, #0d9488);
-  
-  /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-card: 0 2px 15px -3px rgba(0,0,0,0.07);
   --shadow-card-hover: 0 50px 80px -15px rgba(16,185,129,0.3);
-  
-  /* Layout */
   --container-max: 1280px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-/* FIX WIDTH PROBLEM (Horizontal Scroll) */
+
+/* FIX: Prevent Horizontal Scroll caused by wide images or animations */
 html, body { 
     height: 100%; 
     overflow-x: hidden; 
@@ -47,9 +39,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* FIX: Ensure all images stay within screen width */
 img {
     max-width: 100%;
     height: auto;
+    object-fit: cover; /* Prevents stretching */
 }
 
 /* =========================================
@@ -60,8 +54,8 @@ img {
   max-width: var(--container-max);
   margin-left: auto !important;
   margin-right: auto !important;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 a { text-decoration: none; color: inherit; }
 .relative-z { position: relative; z-index: 10; }
@@ -112,7 +106,7 @@ a { text-decoration: none; color: inherit; }
 .btn-lg { padding: 1rem 2rem; font-size: 1rem; min-width: 180px; }
 
 /* =========================================
-   3. HEADER (Fixed Navigation Visibility)
+   3. HEADER (Logo Fitting & Menu)
    ========================================= */
 .site-header {
   position: sticky;
@@ -127,7 +121,7 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 0;
+  padding: 1rem 0; /* Reduced padding for mobile fit */
 }
 
 /* Logo */
@@ -136,6 +130,14 @@ a { text-decoration: none; color: inherit; }
 .logo-text-group { display: flex; flex-direction: column; }
 .logo-title { font-weight: 700; font-size: 1.125rem; line-height: 1.25; }
 .logo-subtitle { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; color: #b3be23; text-transform: uppercase; }
+
+/* FIX: SHRINK LOGO ON MOBILE TO KEEP ON ONE LINE */
+@media (max-width: 400px) {
+    .logo-img { height: 1.8rem; }
+    .logo-title { font-size: 1rem; }
+    .logo-subtitle { font-size: 0.55rem; }
+    .brand-logo { gap: 0.5rem; }
+}
 
 /* Nav (Desktop) */
 .main-nav { display: none; }
@@ -186,24 +188,27 @@ a { text-decoration: none; color: inherit; }
 .dropdown-divider { height: 1px; background-color: #f1f5f9; margin: 0.25rem 0; }
 .highlight-link { color: var(--primary-hover); font-weight: 600; }
 
-/* Mobile Menu Button */
+/* Mobile Menu Button - FIXED */
 .header-actions { display: flex; align-items: center; gap: 1rem; }
 .mobile-menu-btn {
   display: block; background: none; border: none; color: #ffffff;
   padding: 0.5rem; cursor: pointer;
-  z-index: 10001;
+  z-index: 10001; /* High Z-index ensures clickable */
 }
 
-/* HIDE THE QUOTE BUTTON ON MOBILE SO MENU IS VISIBLE */
+/* FIX: Hide Desktop Button on Mobile to make space for Menu Icon */
 @media(max-width: 1024px) {
     .header-actions .btn {
         display: none !important;
+    }
+    .mobile-menu-btn {
+        display: block !important;
     }
 }
 @media(min-width: 1024px) { .mobile-menu-btn { display: none; } }
 
 /* =========================================
-   4. MOBILE MENU LOGIC (Fixed & Stable)
+   4. MOBILE MENU LOGIC
    ========================================= */
 @media (max-width: 1024px) {
     .main-nav {
@@ -231,7 +236,7 @@ a { text-decoration: none; color: inherit; }
         color: #ffffff !important;
         font-weight: 600;
         width: 100%;
-        transition: none !important; /* Stop sliding */
+        transition: none !important; /* Stop sliding effect */
     }
 
     .nav-item-dropdown {
@@ -268,7 +273,6 @@ a { text-decoration: none; color: inherit; }
         transition: none !important; 
     }
     
-    /* NO MOVEMENT on hover */
     .dropdown-item:hover {
         color: #34d399 !important;
         background-color: transparent !important;
@@ -292,7 +296,7 @@ a { text-decoration: none; color: inherit; }
 }
 .hero-slideshow {
   position: absolute; inset: 0; z-index: 0;
-  /* FIX: Default Image */
+  /* Default Image */
   background-image: url('home1.jpg'); 
   background-size: cover; background-position: center;
   animation: slideShow 24s infinite;
@@ -318,9 +322,11 @@ a { text-decoration: none; color: inherit; }
   font-size: 3rem; font-weight: 800; color: var(--white);
   line-height: 1.1; margin-bottom: 2rem;
   text-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  word-wrap: break-word;
+  word-wrap: break-word; /* Prevent text spilling */
 }
-@media(min-width: 768px) { .hero-title { font-size: 3.75rem; } }
+@media(max-width: 768px) { 
+    .hero-title { font-size: 2.5rem; } 
+}
 
 .gradient-text { background: var(--grad-emerald); -webkit-background-clip: text; color: transparent; background-clip: text; }
 
@@ -329,7 +335,7 @@ a { text-decoration: none; color: inherit; }
   font-weight: 300; line-height: 1.75;
 }
 
-.hero-buttons { display: flex; flex-direction: column; gap: 1rem; width: 100%;}
+.hero-buttons { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
 @media(min-width: 640px) { .hero-buttons { flex-direction: row; width: auto; } }
 
 .hero-features-card {
@@ -362,7 +368,7 @@ a { text-decoration: none; color: inherit; }
   background-image: linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px);
   background-size: 40px 40px;
 }
-.section-title { font-size: 2.25rem; font-weight: 700; color: var(--slate-900); margin-bottom: 1.5rem; word-wrap: break-word;}
+.section-title { font-size: 2.25rem; font-weight: 700; color: var(--slate-900); margin-bottom: 1.5rem; word-wrap: break-word; }
 @media(min-width: 768px) { .section-title { font-size: 3rem; } }
 .gradient-text-emerald { background: var(--grad-emerald); -webkit-background-clip: text; color: transparent; background-clip: text; }
 
@@ -398,7 +404,7 @@ a { text-decoration: none; color: inherit; }
 .service-card-dark .card-title { color: white; } 
 
 /* =========================================
-   7. FOREIGNER PAGE
+   7. FOREIGNER PAGE (Fixed Backgrounds)
    ========================================= */
 .foreigner-section {
   position: relative; padding: 7rem 0; background-color: var(--slate-50); overflow: hidden;
@@ -422,12 +428,15 @@ a { text-decoration: none; color: inherit; }
 
 .foreigner-banner {
   position: relative;
-  background-size: cover; background-position: center;
+  background-size: cover; 
+  background-position: center;
   color: white; text-align: center;
   padding: 120px 20px;
-  /* Auto Height Fix */
+  
+  /* FIX: Ensure photo covers full area, no gaps */
   height: auto !important; 
   min-height: 400px;
+  width: 100%;
 }
 
 .banner-overlay {
@@ -438,11 +447,14 @@ a { text-decoration: none; color: inherit; }
 
 
 /* =========================================
-   8. WHO WE SERVE
+   8. WHO WE SERVE (Restored & Resized)
    ========================================= */
 .who-we-serve {
   position: relative;
-  background: url('whoweserve.jpg') center/cover no-repeat;
+  background: url('whoweserve.jpg');
+  /* FIX: Stop stretching */
+  background-size: cover; 
+  background-position: center;
   color: #ffffff;
   padding: 80px 0;
 }
@@ -566,31 +578,34 @@ a { text-decoration: none; color: inherit; }
 
 
 /* =======================================================
-   13. MASTER MOBILE FIXES
+   13. MASTER MOBILE FIXES & ANIMATION RESTORATION
    ======================================================= */
 
-/* PROBLEM 3 (Revised): FIX PHOTO FORMAT & LAYOUTS */
+/* Animations (Restored for Mobile but Controlled) */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* FIX: Ensure Accounting Overlay stops overlapping text */
 @media (max-width: 1024px) {
-    /* FIX: Stop Accounting Overlay. Static position prevents overlapping. */
     .acct-left {
         position: static !important; 
         margin-bottom: 30px;
     }
-    
-    .acct-container {
-        flex-direction: column;
-    }
+    .acct-container { flex-direction: column; }
 
-    /* FIX: Stop rotation effects on mobile images to fit width */
-    .industry-item:hover,
-    .req-card:hover,
-    .image-card,
-    .process-image img {
-        transform: none !important;
-        box-shadow: none !important;
-    }
-
-    /* Squashed Buttons Fix */
+    /* Fix Squashed Buttons */
     .hero-buttons,
     div:has(> .btn) {
         display: flex !important;
@@ -612,17 +627,9 @@ a { text-decoration: none; color: inherit; }
     }
 }
 
-/* PROBLEM 4: GENERAL STABILITY & ANIMATION STOP */
+/* FIX: Mobile Banners & Widths */
 @media (max-width: 768px) {
-    .hero-slideshow, 
-    .hero-section,
-    .foreigner-section {
-        animation: none !important;
-        background-attachment: scroll !important;
-        transform: none !important;
-    }
-    
-    /* Ensure height expands for text */
+    /* Ensure banners expand for text */
     .foreigner-banner,
     .foreigner-section,
     .hero-section {
@@ -630,5 +637,6 @@ a { text-decoration: none; color: inherit; }
         min-height: 100vh !important;
         padding-bottom: 100px !important;
         overflow: visible !important;
+        width: 100%;
     }
 }
