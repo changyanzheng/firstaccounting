@@ -80,7 +80,7 @@ a { text-decoration: none; color: inherit; }
   justify-content: center;
   font-weight: 600;
   border-radius: 9999px; /* Pill Shape */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
+  transition: all 0.3s ease;
   cursor: pointer;
   border: none;
 }
@@ -121,17 +121,28 @@ a { text-decoration: none; color: inherit; }
 .btn-sm { padding: 0.625rem 1.5rem; font-size: 0.875rem; }
 .btn-lg { padding: 1rem 2rem; font-size: 1rem; min-width: 180px; }
 
-/* FIX: New Extra Large Smooth Button for Accounting Page */
-.btn-xl {
-  padding: 1.25rem 3rem;
+/* FIX: New Button for "View Solution" (Requested Change) */
+.btn-xl-smooth {
+  padding: 1.25rem 3rem; /* Bigger size */
   font-size: 1.125rem;
   min-width: 220px;
-  letter-spacing: 0.5px;
-  box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.5);
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 9999px;
+  box-shadow: 0 15px 30px -5px rgba(16,185,129,0.4);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Very smooth transition */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
 }
-.btn-xl:hover {
-    transform: scale(1.05) translateY(-3px);
-    box-shadow: 0 20px 40px -5px rgba(16, 185, 129, 0.6);
+
+.btn-xl-smooth:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05) translateY(-3px); /* Gentle grow effect */
+  box-shadow: 0 20px 40px -5px rgba(16,185,129,0.5);
 }
 
 /* =========================================
@@ -197,7 +208,7 @@ a { text-decoration: none; color: inherit; }
 /* Header Actions Container */
 .header-actions { display: flex; align-items: center; gap: 1rem; }
 
-/* === MOBILE MENU ICON (THE FIX) === */
+/* === MOBILE MENU ICON (YOUR ORIGINAL ICON) === */
 .mobile-menu-btn {
   display: none; /* Hidden on Desktop */
   background: transparent;
@@ -325,19 +336,16 @@ a { text-decoration: none; color: inherit; }
         color: #ffffff !important;
         font-weight: 600;
         width: 100%;
-        
-        /* FIX: FORCE NO TRANSITION ON LAYOUT PROPERTIES */
-        transition: color 0.2s ease !important;
+        /* FIX: Remove transitions on mobile to prevent sliding glitch */
+        transition: none !important; 
         transform: none !important;
-        position: static !important; /* Stops weird relative movements */
     }
 
-    /* 3. Sub-menu Formatting (Dropdown Container) */
+    /* 3. Sub-menu Formatting */
     .nav-item-dropdown {
         display: block !important;
         width: 100%;
         padding: 0; margin: 0;
-        position: static !important; /* Keeps it in flow */
     }
 
     .nav-item-dropdown .nav-link {
@@ -346,7 +354,7 @@ a { text-decoration: none; color: inherit; }
         align-items: center;
     }
 
-    /* 4. The Sub-Menu List (FIX: Stick it, don't float it) */
+    /* 4. The Sub-Menu List - FIX: STICK IT (No float/slide) */
     .dropdown-menu {
         position: static !important; /* Critical fix for sliding issue */
         display: block;
@@ -357,7 +365,6 @@ a { text-decoration: none; color: inherit; }
         box-shadow: none;
         padding: 0;
         border: none;
-        float: none !important;
         transform: none !important;
     }
 
@@ -369,7 +376,6 @@ a { text-decoration: none; color: inherit; }
         display: block;
         transition: none !important; /* Stop sliding animation */
         transform: none !important;
-        position: static !important;
     }
      
     /* 6. Touch State (Change Color ONLY, NO MOVEMENT) */
@@ -423,7 +429,7 @@ a { text-decoration: none; color: inherit; }
     overflow: hidden;
     padding: 120px 20px;
     
-    /* CRITICAL FIX: Ensure background fits */
+    /* Ensure background fits */
     background-size: cover !important;
     background-position: center right !important; /* Focus photo right */
     background-repeat: no-repeat !important;
@@ -486,7 +492,7 @@ a { text-decoration: none; color: inherit; }
     text-align: left; 
 }
 
-/* Dark Overlay for Readability */
+/* Dark Overlay */
 .hero-overlay, 
 .banner-overlay, 
 .who-overlay {
@@ -505,23 +511,22 @@ a { text-decoration: none; color: inherit; }
         text-align: left; 
         background-position: center !important; 
         
-        /* FIX: Increased padding and forced auto height so text doesn't overlap next section */
-        padding-top: 140px; 
+        /* FIX: Foreigner banner overlay fix (Allow height to grow) */
+        padding-top: 150px; 
         padding-bottom: 120px;
         height: auto !important;
-        min-height: auto !important; /* Allow it to grow */
+        min-height: auto !important; 
     }
     
     .hero-overlay, 
     .banner-overlay, 
     .who-overlay {
-        /* Darker overlay on mobile */
         background: rgba(15,23,42,0.85); 
     }
     
     .hero-title, 
     .banner-content h1 {
-        font-size: 2.2rem; /* Slightly smaller for safety */
+        font-size: 2.5rem;
         word-wrap: break-word;
     }
 }
@@ -626,26 +631,19 @@ a { text-decoration: none; color: inherit; }
 @media(min-width: 1024px) { 
     .expat-layout, 
     .clients-flex, 
-    /* FIX: Added align-items start to prevent overlap during animation */
+    /* FIX: Accounting Overlay Fix (Align Flex Start) */
     .acct-container { 
         flex-direction: row; 
-        align-items: flex-start; /* CRITICAL FIX for Accounting Overlap */
+        align-items: flex-start; /* Stops section from floating over text */
     } 
     
-    .acct-left { 
-        position: sticky; 
-        top: 100px; 
-        width: 40%; /* Explicit width helps stability */
-    }
+    .acct-left { position: sticky; top: 100px; }
 }
 
 /* FIX: Mobile reset for accounting Sticky */
 @media(max-width: 1023px) {
     .acct-left {
-        position: relative !important; /* Stop sticky on mobile */
-        top: auto !important;
-        width: 100%;
-        margin-bottom: 20px;
+        position: static !important; /* Stop sticky on mobile */
     }
 }
 
@@ -661,9 +659,7 @@ a { text-decoration: none; color: inherit; }
 
 /* Accounting Page */
 .acct-section { padding: 6rem 0; background: #f8fafc; }
-
-/* .acct-left handling is done above in media queries now for better control */
-
+.acct-left { flex: 1; }
 .acct-right { flex: 1.2; display: grid; grid-template-columns: 1fr; gap: 2rem; }
 @media(min-width: 768px) { .acct-right { grid-template-columns: repeat(2, 1fr); } }
 
@@ -724,7 +720,7 @@ a { text-decoration: none; color: inherit; }
     .hero-buttons { display: flex; flex-direction: column; gap: 15px; width: 100%; }
     
     /* Updated .btn fix to include new XL button */
-    .btn, .btn-xl { width: 100%; max-width: 320px; margin: 0 auto; }
+    .btn, .btn-xl-smooth { width: 100%; max-width: 320px; margin: 0 auto; }
      
     /* Ensure content width fits */
     .foreigner-content, .hero-content, .serve-text { width: 100%; }
