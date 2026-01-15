@@ -2,698 +2,406 @@
    1. VARIABLES & RESET
    ========================================= */
 :root {
-  /* Brand Colors */
   --primary: #10b981; 
   --primary-hover: #059669; 
   --primary-light: #ecfdf5; 
-  
-  /* Text Colors */
   --slate-900: #0f172a;
   --slate-800: #1e293b;
   --slate-500: #64748b;
   --slate-400: #94a3b8;
   --slate-50: #f8fafc;
   --white: #ffffff;
-  
-  /* Backgrounds */
   --bg-emerald-dark: #0e2e1e;
-  
-  /* Gradients */
-  --grad-emerald: linear-gradient(to right, #059669, #14b8a6, #06b6d4); 
-  --grad-logo: linear-gradient(to bottom right, #10b981, #0d9488);
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-card: 0 2px 15px -3px rgba(0,0,0,0.07);
-  --shadow-card-hover: 0 50px 80px -15px rgba(16,185,129,0.3);
-  
-  /* Layout Config */
   --container-max: 1280px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* MASTER FIX: Stop Horizontal Scrolling */
 html, body { 
-    height: 100%; 
-    overflow-x: hidden; /* Prevents white space on the right */
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    width: 100%; 
+    overflow-x: hidden; 
+    margin: 0; padding: 0;
 } 
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--slate-900);
-  line-height: 1.6;
   background-color: var(--white);
-  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
 }
 
-/* Ensure all images fit the screen */
-img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-}
+img { max-width: 100%; height: auto; object-fit: cover; }
 
 /* =========================================
    2. UTILITIES
    ========================================= */
 .container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 20px;
-  padding-right: 20px;
+  width: 100%; max-width: var(--container-max);
+  margin: 0 auto; padding: 0 20px;
 }
-
 a { text-decoration: none; color: inherit; }
-.relative-z { position: relative; z-index: 10; }
-.text-center { text-align: center; }
-.bg-emerald-500 { background-color: var(--primary); }
-.text-white { color: var(--white); }
-.text-slate-900 { color: var(--slate-900); }
 
-/* Buttons Style */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  border-radius: 9999px; /* Pill Shape */
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 600; border-radius: 9999px; transition: all 0.3s ease;
+  cursor: pointer; border: none;
 }
-
 .btn-primary {
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--primary); color: var(--white);
   box-shadow: 0 10px 20px -5px rgba(16,185,129,0.4);
 }
-
-.btn-primary:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-2px);
-}
-
-.btn-glass {
-  background-color: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--white);
-  backdrop-filter: blur(4px);
-}
-
-.btn-glass:hover {
-  background-color: rgba(255,255,255,0.1);
-}
-
-.btn-dark {
-  background-color: var(--slate-900);
-  color: var(--white);
-  box-shadow: var(--shadow-lg);
-}
-
-.btn-dark:hover {
-  background-color: var(--slate-800);
-  transform: translateY(-2px);
-}
-
-.btn-sm { padding: 0.625rem 1.5rem; font-size: 0.875rem; }
-.btn-lg { padding: 1rem 2rem; font-size: 1rem; min-width: 180px; }
+.btn-primary:hover { transform: translateY(-2px); }
 
 /* =========================================
-   3. HEADER (Layout & Logo Fixes)
+   3. HEADER (Fixed for Mobile & Desktop)
    ========================================= */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 9999; /* Highest priority */
-  background-color: #0e2e1e !important; /* Solid Dark Green */
+  position: sticky; top: 0; z-index: 9999; 
+  background-color: #0e2e1e !important; 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-
 .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   padding: 1rem 0;
-  min-height: 80px;
 }
 
-/* LOGO FIX: Ensures it fits on one line on mobile */
+/* Logo */
 .brand-logo { 
-    display: flex; 
-    align-items: center; 
-    gap: 0.75rem; 
-    color: var(--white);
-    flex-shrink: 1; /* Allow shrinking */
-    max-width: 75%; /* Keep room for menu button */
+    display: flex; align-items: center; gap: 10px; 
+    flex-shrink: 1; max-width: 70%; 
 }
-
-.logo-img { 
-    height: 2.2rem; 
-    width: auto; 
-    object-fit: contain; 
-}
-
-.logo-text-group { display: flex; flex-direction: column; }
-
+.logo-img { height: 2.2rem; width: auto; }
 .logo-title { 
-    font-weight: 700; 
-    font-size: 1.125rem; 
-    line-height: 1.25; 
-    white-space: nowrap; /* Forces single line */
+    font-weight: 700; font-size: 1.125rem; color: white; line-height: 1.2; 
+    white-space: nowrap; 
 }
+.logo-subtitle { font-size: 0.65rem; color: #b3be23; letter-spacing: 0.1em; text-transform: uppercase; }
 
-.logo-subtitle { 
-    font-size: 0.65rem; 
-    font-weight: 500; 
-    letter-spacing: 0.2em; 
-    color: #b3be23; 
-    text-transform: uppercase; 
-}
-
-/* Mobile Logo Adjustment (Tiny Screens) */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
     .logo-img { height: 1.8rem; }
     .logo-title { font-size: 0.95rem; }
-    .logo-subtitle { font-size: 0.5rem; }
-    .brand-logo { gap: 0.5rem; }
 }
 
-/* Header Actions Container */
+/* Header Actions */
 .header-actions { display: flex; align-items: center; gap: 1rem; }
 
-/* === MOBILE MENU ICON (THE FIX) === */
-/* This creates a pure CSS hamburger icon. No image file needed. */
+/* Hamburger Icon - Force Visible White */
 .mobile-menu-btn {
-  display: none; /* Hidden on Desktop */
-  background: transparent;
-  border: none;
-  padding: 0;
-  width: 30px;
-  height: 24px;
-  cursor: pointer;
-  position: relative;
+  display: none; background: none; border: none; 
+  color: #ffffff !important; 
+  padding: 5px; cursor: pointer;
   z-index: 10002;
 }
-
-/* The Three White Lines */
-.mobile-menu-btn::before,
-.mobile-menu-btn::after,
-.mobile-menu-btn span {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #ffffff; /* FORCE WHITE */
-    position: absolute;
-    left: 0;
-    border-radius: 2px;
-    transition: all 0.3s;
+.mobile-menu-btn svg, .mobile-menu-btn i { width: 30px; height: 30px; fill: white; display: block; }
+/* CSS Fallback lines */
+.mobile-menu-btn::before {
+    content: '☰'; font-size: 30px; color: white; display: block;
 }
+.mobile-menu-btn:has(svg)::before { display: none; }
 
-/* Positioning the lines */
-.mobile-menu-btn::before { top: 0; }
-.mobile-menu-btn span { top: 11px; } /* Middle line */
-.mobile-menu-btn::after { bottom: 0; }
-
-/* Show on Mobile, Hide Quote Button */
-@media(max-width: 1024px) {
-    .header-actions .btn { display: none !important; } /* Hide green button */
-    .mobile-menu-btn { display: block !important; } /* Show Icon */
-}
-
-/* Hide on Desktop */
-@media(min-width: 1024px) { 
-    .mobile-menu-btn { display: none; } 
-}
-
-/* =========================================
-   4. NAVIGATION MENU (Desktop)
-   ========================================= */
-.main-nav { display: none; }
-
-@media(min-width: 1024px) {
-  .main-nav { display: flex; align-items: center; gap: 2.5rem; }
-}
-
-.nav-link {
-  font-weight: 500;
-  color: #e2e8f0;
-  font-size: 0.95rem;
-  position: relative;
-  transition: color 0.3s;
-}
+/* Navigation Desktop */
+.main-nav { display: flex; align-items: center; gap: 2.5rem; }
+.nav-link { color: #e2e8f0; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
 .nav-link:hover { color: #34d399; }
 
 /* Desktop Dropdown */
-.nav-item-dropdown { 
-    position: relative; height: 100%; display: flex; align-items: center; cursor: pointer; 
-}
-.arrow-icon { width: 10px; height: 10px; margin-left: 5px; transition: 0.3s; }
-.nav-item-dropdown:hover .arrow-icon { transform: rotate(180deg); }
-
+.nav-item-dropdown { position: relative; height: 100%; display: flex; align-items: center; cursor: pointer; }
 .dropdown-menu {
-  opacity: 0; visibility: hidden;
-  position: absolute; top: 100%; left: 0;
-  background: var(--white);
-  min-width: 260px;
-  padding: 0.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
-  z-index: 50;
-  transition: all 0.2s;
+  opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 0;
+  background: white; min-width: 260px; padding: 10px;
+  border-radius: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  z-index: 50; transition: 0.2s;
 }
+.nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+.dropdown-item { display: block; padding: 10px; color: var(--slate-500); font-size: 0.9rem; }
+.dropdown-item:hover { background: var(--primary-light); color: var(--primary); }
 
-.nav-item-dropdown:hover .dropdown-menu {
-  opacity: 1; visibility: visible;
-}
-
-.dropdown-item {
-  display: block; padding: 0.625rem 1rem;
-  color: var(--slate-500);
-  font-size: 0.9rem; font-weight: 500;
-  transition: all 0.2s;
-}
-
-.dropdown-item:hover {
-  background-color: var(--primary-light);
-  color: var(--primary-hover);
-  padding-left: 1.25rem;
-}
-
-/* =========================================
-   5. MOBILE MENU LOGIC (Anti-Split Fix)
-   ========================================= */
+/* --- MOBILE MENU & HEADER FIXES --- */
 @media (max-width: 1024px) {
-    /* 1. The Menu Container (Dark Green) */
-    .main-nav {
-        display: none;
-        flex-direction: column;
-        background-color: #0e2e1e; /* Dark Green */
-        position: absolute;
-        top: 100%; left: 0; width: 100%;
-        padding: 0;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 10px 15px rgba(0,0,0,0.5);
-        z-index: 9998;
-        max-height: 80vh;
-        overflow-y: auto;
+    .main-nav { display: none; } /* Use JS to toggle */
+    .header-actions .btn { display: none !important; }
+    .mobile-menu-btn { display: block !important; }
+    
+    /* Active Mobile Menu */
+    .main-nav.active {
+        display: flex; flex-direction: column;
+        background-color: #0e2e1e;
+        position: absolute; top: 100%; left: 0; width: 100%;
+        padding: 0; border-top: 1px solid rgba(255,255,255,0.1);
+        max-height: 80vh; overflow-y: auto;
     }
 
-    /* Show when active */
-    .main-nav.active { display: flex !important; }
-
-    /* 2. Main Links - LOCKED PADDING */
     .nav-link {
-        display: block;
-        padding: 15px 20px !important; /* LOCKED PADDING */
+        padding: 15px 20px !important;
         border-bottom: 1px solid rgba(255,255,255,0.1);
-        color: #ffffff !important;
-        font-weight: 600;
-        width: 100%;
-        transition: none !important; /* Stop sliding animation */
-        transform: none !important;
+        color: white !important; width: 100%;
+        display: flex; justify-content: space-between;
     }
 
-    /* 3. Sub-menu Formatting */
-    .nav-item-dropdown {
-        display: block !important;
-        width: 100%;
-        padding: 0; margin: 0;
-    }
-
-    .nav-item-dropdown .nav-link {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* 4. The Sub-Menu List */
     .dropdown-menu {
-        position: static;
-        display: block;
-        visibility: visible;
-        opacity: 1;
-        width: 100%;
-        background-color: rgba(0,0,0,0.2); /* Slightly darker green */
-        box-shadow: none;
-        padding: 0;
-        border: none;
+        position: static; visibility: visible; opacity: 1;
+        width: 100%; background: rgba(0,0,0,0.2); box-shadow: none;
     }
-
-    /* 5. Sub-Menu Items - LOCKED PADDING */
     .dropdown-item {
+        padding: 12px 0 12px 40px !important; /* Fixed Indent */
         color: rgba(255,255,255,0.8) !important;
-        padding: 12px 0 12px 40px !important; /* FIXED INDENTATION */
         border-bottom: 1px solid rgba(255,255,255,0.05);
-        display: block;
-        transition: none !important; /* Stop sliding animation */
-        transform: none !important;
     }
     
-    /* 6. Touch State (Change Color ONLY, NO MOVEMENT) */
-    .nav-link:hover, 
-    .nav-link:active,
-    .dropdown-item:hover,
-    .dropdown-item:active {
-        color: #34d399 !important; /* Green Color */
-        background-color: transparent !important;
-        padding-left: 20px !important; /* KEEP ORIGINAL PADDING */
-        transform: none !important;
+    /* Touch State - Locked Padding */
+    .nav-link:hover, .dropdown-item:hover {
+        color: #34d399 !important; background: transparent !important;
+        padding-left: 20px !important; transform: none !important;
     }
-    
-    /* Specific override for dropdown item hover padding */
-    .dropdown-item:hover,
-    .dropdown-item:active {
-        padding-left: 40px !important; /* KEEP ORIGINAL PADDING */
-    }
+    .dropdown-item:hover { padding-left: 40px !important; }
 }
 
 /* =========================================
-   6. ANIMATIONS (Restored Slide Up)
+   4. HERO SECTION (Main Home)
    ========================================= */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.hero-section {
+    position: relative; width: 100%; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; padding: 100px 20px;
 }
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-}
-
-/* =========================================
-   7. HERO & BANNERS (Text Left, Photo Right)
-   ========================================= */
-/* Common Settings for All Big Banners */
-.hero-section, 
-.foreigner-banner, 
-.who-we-serve {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    
-    /* Layout: Left Align Text */
-    justify-content: flex-start; 
-    text-align: left;
-    
-    overflow: hidden;
-    padding: 120px 20px;
-    
-    /* CRITICAL FIX: Ensure background fits */
-    background-size: cover !important;
-    background-position: center right !important; /* Focus photo right */
-    background-repeat: no-repeat !important;
-}
-
-/* 1. One-Stop Solution (Hero Slideshow - 4 Images) */
 .hero-slideshow {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+    position: absolute; inset: 0; z-index: 0;
     background-image: url('home1.jpg');
+    background-size: cover; background-position: center;
     animation: slideShow 24s infinite;
 }
-
-@keyframes slideShow {
-  0%, 20% { background-image: url('home1.jpg'); transform: scale(1); }
-  25%, 45% { background-image: url('home2.jpg'); transform: scale(1.05); }
-  50%, 70% { background-image: url('home3.jpg'); transform: scale(1); }
-  75%, 95% { background-image: url('home4.jpg'); transform: scale(1.05); }
-  100% { background-image: url('home1.jpg'); transform: scale(1); }
+.hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(2,6,23,0.9), rgba(15,23,42,0.6));
 }
-
 .hero-content {
-    position: relative;
-    z-index: 10;
-    max-width: 650px; /* Limit width so text stays left */
-    width: 100%;
+    position: relative; z-index: 10; max-width: 800px; 
+    text-align: left; width: 100%;
 }
-
-/* 2. Accelerate Business (Foreigner Banner) */
-.foreigner-banner {
-    background-color: #0e2e1e; /* Fallback Color */
-    /* Ensure image is set in HTML or add url() here */
-}
-
-.banner-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px; /* Text Left */
-    margin-right: auto; 
-    margin-left: 0;
-}
-
-/* 3. Expand Business (Who We Serve) */
-.who-we-serve {
-    background-image: url('whoweserve.jpg');
-}
-
-.serve-layout {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    max-width: 1280px;
-    width: 100%;
-}
-
-.serve-text { 
-    flex: 1 1 400px; /* Take up space */
-    text-align: left; 
-}
-
-/* Dark Overlay for Readability */
-.hero-overlay, 
-.banner-overlay, 
-.who-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(90deg, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.7) 50%, rgba(15,23,42,0.2) 100%);
-}
-
-/* --- MOBILE ADJUSTMENTS FOR BANNERS --- */
-@media (max-width: 768px) {
-    .hero-section, 
-    .foreigner-banner, 
-    .who-we-serve {
-        justify-content: center;
-        text-align: left; /* Keep text aligned left for reading */
-        background-position: center !important; /* Center photo */
-        padding-top: 100px;
-        padding-bottom: 80px;
-        height: auto !important;
-        min-height: 100vh;
-    }
-    
-    .hero-overlay, 
-    .banner-overlay, 
-    .who-overlay {
-        /* Darker overlay on mobile */
-        background: rgba(15,23,42,0.85); 
-    }
-    
-    .hero-title, 
-    .banner-content h1 {
-        font-size: 2.5rem;
-        word-wrap: break-word;
-    }
-}
-
-/* Hero Typography */
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1.1;
-  margin-bottom: 2rem;
+    font-size: 3.5rem; font-weight: 800; color: white; line-height: 1.1; margin-bottom: 20px;
 }
-
 .hero-subtitle {
-  font-size: 1.125rem;
-  color: #e2e8f0;
-  margin-bottom: 2.5rem;
-  font-weight: 300;
+    font-size: 1.2rem; color: #e2e8f0; margin-bottom: 30px;
+}
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-buttons { display: flex; flex-direction: column; gap: 15px; }
+    .btn { width: 100%; }
 }
 
-.hero-buttons { display: flex; flex-direction: column; gap: 1rem; }
-@media(min-width: 640px) { .hero-buttons { flex-direction: row; } }
-
-/* Hero Features Card */
-.hero-features-card {
-  display: inline-flex; flex-direction: column; gap: 1rem;
-  padding: 1.5rem 2rem;
-  border-radius: 1rem;
-  background-color: rgba(15, 23, 42, 0.4);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* Animations */
+@keyframes slideShow {
+  0%, 100% { background-image: url('home1.jpg'); transform: scale(1); }
+  25% { background-image: url('home2.jpg'); transform: scale(1.05); }
+  50% { background-image: url('home3.jpg'); transform: scale(1); }
+  75% { background-image: url('home4.jpg'); transform: scale(1.05); }
 }
-@media(min-width: 768px) { .hero-features-card { flex-direction: row; gap: 2rem; } }
-
-.feature-item { display: flex; align-items: center; gap: 0.75rem; }
-.feature-item span { color: #e2e8f0; font-weight: 500; font-size: 0.875rem; }
-.icon-circle {
-  width: 2rem; height: 2rem; border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.2);
-  display: flex; align-items: center; justify-content: center;
-  color: #34d399;
-}
-.separator { display: none; width: 1px; height: 2rem; background-color: rgba(255, 255, 255, 0.1); align-self: center; }
-@media(min-width: 768px) { .separator { display: block; } }
 
 /* =========================================
-   8. SERVICES & CONTENT SECTIONS
+   5. FEATURE SECTIONS (Expand & Accelerate)
    ========================================= */
-.services-section { padding: 80px 0; background: var(--white); }
-.section-title { font-size: 2.5rem; font-weight: 700; color: var(--slate-900); margin-bottom: 1.5rem; }
+/* This matches your screenshots: Clean White BG, Text Left, Image Right */
 
-.services-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-@media(min-width: 768px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
-
-.service-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 1rem;
-  border: 1px solid #f1f5f9;
-  box-shadow: var(--shadow-card);
-  display: flex; flex-direction: column;
+/* Common Container Style */
+.who-we-serve, 
+.foreigner-banner {
+    position: relative;
+    padding: 100px 0;
+    background-color: #ffffff !important; /* Force White Background */
+    background-image: none !important; /* Remove old bg image */
+    color: var(--slate-900) !important; /* Dark text */
 }
 
-.service-card:hover { transform: translateY(-0.5rem); box-shadow: var(--shadow-card-hover); }
-
-.card-icon-wrapper {
-  width: 50px; height: 50px;
-  background: var(--primary-light);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--primary-hover);
-  margin-bottom: 1.5rem;
+/* Layout Grid */
+.serve-layout, 
+.banner-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split 50/50 */
+    gap: 60px;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
-.card-desc { font-size: 0.9rem; color: var(--slate-500); line-height: 1.6; }
-.card-footer { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--slate-50); font-size: 0.875rem; font-weight: 600; color: var(--primary-hover); display: flex; align-items: center; }
-.arrow-mini { width: 1rem; height: 1rem; margin-left: 0.5rem; }
-
-/* Dark Card Variant */
-.service-card-dark {
-  background: linear-gradient(to bottom right, var(--slate-900), var(--slate-800));
-  border-color: #334155; box-shadow: var(--shadow-lg);
+/* Text Side */
+.serve-text, 
+.banner-text-side {
+    text-align: left;
 }
-.service-card-dark .card-icon-wrapper { background-color: rgba(255,255,255,0.1); color: #34d399; }
-.service-card-dark:hover .card-icon-wrapper { background-color: var(--primary); color: var(--white); }
-.service-card-dark .card-title { color: white; } 
 
-/* Expatriate & International Sections */
-.expatriate-tax, 
-.international-clients { 
-    padding: 80px 0; 
+.serve-text h2, 
+.banner-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--slate-900);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.serve-text p, 
+.banner-content p {
+    font-size: 1.1rem;
+    color: var(--slate-500);
+    margin-bottom: 30px;
+}
+
+/* Image Side (The "Side Up" Look) */
+/* If you use <img> tags in HTML */
+.serve-image img, 
+.banner-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    display: block;
+}
+
+/* If you used background divs previously, this forces the image to show */
+.serve-layout::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 400px;
+    background-image: url('whoweserve.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+/* Only add pseudo-element if no image tag exists in HTML structure */
+.serve-layout:has(img)::after { display: none; }
+
+
+/* MOBILE LAYOUT for Features */
+@media (max-width: 1024px) {
+    .serve-layout, 
+    .banner-content {
+        grid-template-columns: 1fr; /* Stack */
+        gap: 40px;
+    }
+    
+    .serve-text, 
+    .banner-text-side {
+        order: 1; /* Text First */
+    }
+    
+    .serve-image, 
+    .banner-image,
+    .serve-layout::after {
+        order: 2; /* Image Second */
+        height: 300px; /* Specific height for mobile image */
+        width: 100%;
+    }
+    
+    .serve-text h2, 
+    .banner-content h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* =========================================
+   6. ACCOUNTING PAGE (Overlay Fix)
+   ========================================= */
+.acct-section { 
+    padding: 8rem 0; /* Huge padding to clear header */
     background: #f8fafc; 
 }
 
-.expat-layout, 
-.clients-flex, 
 .acct-container { 
-    display: flex; flex-direction: column; gap: 3rem; 
+    display: flex; 
+    gap: 4rem; 
+    align-items: flex-start;
 }
 
-@media(min-width: 1024px) { 
-    .expat-layout, 
-    .clients-flex, 
-    .acct-container { flex-direction: row; align-items: center; } 
-    
-    .acct-left { position: sticky; top: 100px; }
+.acct-left { 
+    flex: 1; 
+    position: sticky; 
+    top: 150px; /* Moves text DOWN so header doesn't cover it */
 }
 
-.expat-text, .clients-text { flex: 1; }
-.expat-photo, .clients-photo { flex: 1; }
-.expat-header { text-align: center; max-width: 900px; margin: 0 auto 60px; }
-
-/* Lists */
-.expat-services li { 
-    background: white; margin-bottom: 10px; padding: 12px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+.acct-right { 
+    flex: 1.2; 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 2rem; 
 }
-.country-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 
-/* Accounting Page */
-.acct-section { padding: 6rem 0; background: #f8fafc; }
-.acct-left { flex: 1; }
-.acct-right { flex: 1.2; display: grid; grid-template-columns: 1fr; gap: 2rem; }
-@media(min-width: 768px) { .acct-right { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 768px) {
+    .acct-right { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile Accounting Fix */
+@media (max-width: 1024px) {
+    .acct-container { flex-direction: column; }
+    .acct-left { 
+        position: static; /* Disable sticky on mobile */
+        margin-bottom: 40px; 
+    }
+}
 
 .acct-box {
-  background: white; padding: 2rem; border-radius: 1rem; border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: relative; overflow: hidden;
+    background: white; padding: 2rem; border-radius: 1rem;
+    border: 1px solid #e2e8f0; position: relative; overflow: hidden;
 }
 .acct-box::before {
-  content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-  background: var(--primary); transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
-}
-.acct-box:hover::before { transform: scaleX(1); }
-
-/* Process Section */
-.process-section { padding: 6rem 0; background: white; }
-.process-container { display: flex; flex-direction: column; gap: 4rem; }
-@media(min-width: 1024px) { .process-container { flex-direction: row; } }
-
-.process-image img { border-radius: 1.5rem; transform: rotate(-2deg); transition: 0.5s; }
-.process-image:hover img { transform: rotate(0); }
-
-.process-step { margin-bottom: 2rem; padding-left: 2rem; border-left: 3px solid #e2e8f0; position: relative; }
-.process-step::before {
-  content: ""; position: absolute; left: -11px; top: 0; width: 20px; height: 20px;
-  border-radius: 50%; background: var(--primary); border: 4px solid white; box-shadow: 0 0 0 1px #e2e8f0;
-}
-
-/* Requirements Section */
-.requirements-section { background: #f8fafc; padding: 80px 0; }
-.requirements-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
-@media (min-width: 768px) { .requirements-grid { grid-template-columns: repeat(2, 1fr); } }
-
-.req-card {
-  background: white; border-radius: 16px; padding: 30px; border: 1px solid rgba(0,0,0,0.04);
-}
-.req-icon-wrapper {
-  width: 50px; height: 50px; background: #f0fdf4; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px;
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+    background: var(--primary);
 }
 
 /* =========================================
-   9. FOOTER
+   7. CLIENT PAGE (Centered)
    ========================================= */
-.site-footer { background: var(--bg-emerald-dark); color: #cbd5e1; padding: 60px 0; }
-.footer-grid { display: grid; gap: 40px; grid-template-columns: 1fr; }
-@media(min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
-
-.footer-brand { display: flex; align-items: center; gap: 0.5rem; color: var(--white); font-weight: 700; font-size: 1.25rem; margin-bottom: 1.5rem; }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
-@media(min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
-
-/* =======================================================
-   10. FINAL MOBILE SAFETY NET
-   ======================================================= */
-@media (max-width: 768px) {
-    /* Stack Buttons */
-    .hero-buttons { display: flex; flex-direction: column; gap: 15px; width: 100%; }
-    .btn { width: 100%; max-width: 320px; margin: 0 auto; }
-    
-    /* Ensure content width fits */
-    .foreigner-content, .hero-content, .serve-text { width: 100%; }
-    
-    /* Stop weird Image Rotations on mobile */
-    .industry-item:hover, .req-card:hover, .image-card { transform: none !important; }
-    
-    /* Hide Blobs */
-    .bg-blob { display: none; }
+.international-clients { 
+    padding: 80px 0; 
+    background: #f8fafc;
+    text-align: center; /* Center Text */
 }
+
+.clients-flex { 
+    display: flex; 
+    flex-direction: column; /* Stack verticallly */
+    align-items: center; 
+    gap: 40px; 
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.clients-text { max-width: 800px; margin: 0 auto; }
+.clients-text h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #0e2e1e; }
+
+.clients-photo img {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 100%;
+}
+
+.country-list {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; 
+    text-align: left;
+    margin-top: 30px;
+}
+
+/* =========================================
+   8. FOOTER & SERVICES GRID
+   ========================================= */
+.services-section { padding: 80px 0; background: white; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media(max-width: 1024px) { .services-grid { grid-template-columns: 1fr; } }
+
+.service-card {
+    background: white; padding: 2rem; border-radius: 1rem;
+    border: 1px solid #f1f5f9; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.card-icon-wrapper {
+    width: 50px; height: 50px; background: #ecfdf5; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.site-footer { background: var(--bg-emerald-dark); color: #cbd5e1; padding: 60px 0; }
+.footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+@media(max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand { display: flex; align-items: center; gap: 10px; color: white; font-weight: 700; font-size: 1.2rem; }
