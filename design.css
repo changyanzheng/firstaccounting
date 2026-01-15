@@ -23,7 +23,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* FIX: Stop horizontal scrolling */
+/* FIX: Stop horizontal scrolling & page width issues */
 html, body { 
     height: 100%; 
     overflow-x: hidden; 
@@ -39,7 +39,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* FIX: Ensure photos fit */
 img {
     max-width: 100%;
     height: auto;
@@ -90,7 +89,7 @@ a { text-decoration: none; color: inherit; }
 .btn-lg { padding: 1rem 2rem; font-size: 1rem; min-width: 180px; }
 
 /* =========================================
-   3. HEADER (Restored Stability)
+   3. HEADER (Fixed Fitting & Visibility)
    ========================================= */
 .site-header {
   position: sticky;
@@ -108,17 +107,19 @@ a { text-decoration: none; color: inherit; }
   padding: 1rem 0;
 }
 
-/* Logo */
-.brand-logo { display: flex; align-items: center; gap: 0.75rem; color: var(--white); }
+/* Logo & Text - FIXED FOR MOBILE FITTING */
+.brand-logo { display: flex; align-items: center; gap: 0.75rem; color: var(--white); flex-shrink: 1; }
 .logo-img { height: 2.2rem; width: auto; object-fit: contain; }
 .logo-text-group { display: flex; flex-direction: column; }
-.logo-title { font-weight: 700; font-size: 1.125rem; line-height: 1.25; }
+.logo-title { font-weight: 700; font-size: 1.125rem; line-height: 1.25; white-space: nowrap; }
 .logo-subtitle { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; color: #b3be23; text-transform: uppercase; }
 
-/* FIX: Ensure logo doesn't crush the menu button on tiny screens */
-@media (max-width: 400px) {
-    .logo-title { font-size: 1rem; }
-    .logo-subtitle { font-size: 0.55rem; }
+/* FORCE LOGO TO SHRINK ON SMALL SCREENS (Keeps it on one line) */
+@media (max-width: 480px) {
+    .logo-img { height: 1.8rem; }
+    .logo-title { font-size: 0.95rem; }
+    .logo-subtitle { font-size: 0.5rem; }
+    .brand-logo { gap: 0.5rem; }
 }
 
 /* Nav (Desktop) */
@@ -170,33 +171,18 @@ a { text-decoration: none; color: inherit; }
 .dropdown-divider { height: 1px; background-color: #f1f5f9; margin: 0.25rem 0; }
 .highlight-link { color: var(--primary-hover); font-weight: 600; }
 
-/* Mobile Menu Button - CRITICAL FIX */
-.header-actions { 
-    display: flex; 
-    align-items: center; 
-    gap: 1rem; 
-}
-
+/* Mobile Menu Button - VISIBILITY FIX */
+.header-actions { display: flex; align-items: center; gap: 1rem; }
 .mobile-menu-btn {
-  display: block; 
-  background: none; 
-  border: none; 
-  color: #ffffff !important; /* Force White Color */
-  padding: 0.5rem; 
-  cursor: pointer;
+  display: block; background: none; border: none; 
+  color: #ffffff !important; /* Force White */
+  padding: 0.5rem; cursor: pointer;
   z-index: 10001;
-  width: 40px; /* Ensure click area */
-  height: 40px;
+  width: 40px; height: 40px;
 }
+.mobile-menu-btn svg { width: 28px; height: 28px; }
 
-/* Ensure the SVG icon inside is visible */
-.mobile-menu-btn svg, .icon {
-    width: 24px;
-    height: 24px;
-    display: block;
-}
-
-/* HIDE QUOTE BUTTON ON MOBILE TO SHOW MENU */
+/* HIDE QUOTE BUTTON ON MOBILE */
 @media(max-width: 1024px) {
     .header-actions .btn { display: none !important; }
     .mobile-menu-btn { display: block !important; }
@@ -204,7 +190,7 @@ a { text-decoration: none; color: inherit; }
 @media(min-width: 1024px) { .mobile-menu-btn { display: none; } }
 
 /* =========================================
-   4. MOBILE MENU LOGIC (Previous Bar Style)
+   4. MOBILE MENU LOGIC (Anti-Split Fix)
    ========================================= */
 @media (max-width: 1024px) {
     /* 1. Main Menu Container */
@@ -213,28 +199,26 @@ a { text-decoration: none; color: inherit; }
         flex-direction: column;
         background-color: #0e2e1e; /* Dark Green */
         position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        top: 100%; left: 0; width: 100%;
         padding: 20px 0; 
         box-shadow: 0 10px 15px rgba(0,0,0,0.5);
         z-index: 9998;
         border-top: 1px solid rgba(255,255,255,0.1);
-        overflow-y: auto;
-        max-height: 80vh; 
+        overflow-y: auto; max-height: 80vh; 
     }
 
     .main-nav.active { display: flex !important; }
 
-    /* 2. Main Links */
+    /* 2. Main Links - LOCKED PADDING */
     .nav-link {
         display: block;
-        padding: 15px 20px !important;
+        padding: 15px 20px !important; /* Locked */
         border-bottom: 1px solid rgba(255,255,255,0.1);
         color: #ffffff !important;
         font-weight: 600;
         width: 100%;
         transition: none !important; 
+        transform: none !important;
     }
 
     /* 3. Sub-menu Container */
@@ -245,40 +229,41 @@ a { text-decoration: none; color: inherit; }
     }
 
     .nav-item-dropdown .nav-link {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        display: flex; justify-content: space-between; align-items: center;
     }
 
     /* 4. Sub-Menu List */
     .dropdown-menu {
-        position: static;
-        display: block;
-        visibility: visible;
-        opacity: 1;
-        width: 100%;
-        box-shadow: none;
+        position: static; display: block; visibility: visible; opacity: 1;
+        width: 100%; box-shadow: none;
         background-color: rgba(0,0,0,0.2); 
         padding: 0; margin: 0;
-        border: none;
-        transform: none;
+        border: none; transform: none;
     }
 
-    /* 5. Sub-Menu Items */
+    /* 5. Sub-Menu Items - LOCKED PADDING (Fixes "Split Away") */
     .dropdown-item {
         color: rgba(255,255,255,0.8) !important;
         font-size: 0.95rem;
-        padding: 12px 0 12px 40px !important; 
+        padding: 12px 0 12px 40px !important; /* Locked at 40px */
         border-bottom: 1px solid rgba(255,255,255,0.05);
         display: block;
         transition: none !important; 
+        transform: none !important;
     }
     
-    .dropdown-item:hover {
+    /* NO MOVEMENT on hover - Just Color */
+    .dropdown-item:hover, 
+    .dropdown-item:active,
+    .dropdown-item:focus {
         color: #34d399 !important;
         background-color: transparent !important;
-        padding-left: 40px !important; 
+        padding-left: 40px !important; /* Force stay at 40px */
         transform: none !important;
+    }
+    
+    .nav-link:hover {
+        padding-left: 20px !important; /* Force stay at 20px */
     }
 }
 
@@ -363,7 +348,7 @@ a { text-decoration: none; color: inherit; }
   background-image: linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px);
   background-size: 40px 40px;
 }
-.section-title { font-size: 2.25rem; font-weight: 700; color: var(--slate-900); margin-bottom: 1.5rem; word-wrap: break-word; }
+.section-title { font-size: 2.25rem; font-weight: 700; color: var(--slate-900); margin-bottom: 1.5rem; word-wrap: break-word;}
 @media(min-width: 768px) { .section-title { font-size: 3rem; } }
 .gradient-text-emerald { background: var(--grad-emerald); -webkit-background-clip: text; color: transparent; background-clip: text; }
 
@@ -442,15 +427,12 @@ a { text-decoration: none; color: inherit; }
 
 
 /* =========================================
-   8. WHO WE SERVE (Expand Business Fix)
+   8. WHO WE SERVE (Restored & Fixed Photo)
    ========================================= */
 .who-we-serve {
   position: relative;
-  background: url('whoweserve.jpg');
-  /* FIX: Stop stretching on mobile */
-  background-size: cover; 
-  background-position: center top; /* Focus top of image */
-  background-repeat: no-repeat;
+  /* RESTORED ORIGINAL FORMAT BUT FIXED STRETCHING */
+  background: url('whoweserve.jpg') center/cover no-repeat;
   color: #ffffff;
   padding: 80px 0;
   width: 100%;
@@ -575,10 +557,10 @@ a { text-decoration: none; color: inherit; }
 
 
 /* =======================================================
-   13. ANIMATIONS & MOBILE FIXES
+   13. MASTER MOBILE FIXES & ANIMATIONS
    ======================================================= */
 
-/* Animations (Active but controlled) */
+/* Animations (Restored for Mobile but Controlled) */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -625,7 +607,7 @@ a { text-decoration: none; color: inherit; }
     }
 }
 
-/* FIX: Banner sizing for Text */
+/* FIX: Banner sizing for Text & Animation Overflow */
 @media (max-width: 768px) {
     .foreigner-banner,
     .foreigner-section,
@@ -633,7 +615,7 @@ a { text-decoration: none; color: inherit; }
         height: auto !important;
         min-height: 100vh !important;
         padding-bottom: 100px !important;
-        overflow: hidden !important; /* Stop animation scrolling */
         width: 100%;
+        overflow: hidden; /* Stops animation scrolling */
     }
 }
