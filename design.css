@@ -579,3 +579,74 @@ a { text-decoration: none; color: inherit; }
         background-color: rgba(255,255,255,0.05);
     }
 }
+/* =========================================
+   FINAL MOBILE FIXES
+   (Paste this at the very bottom of design.css)
+   ========================================= */
+
+/* 1. Stop the "Reaction Movement" in Navigation */
+@media (max-width: 1024px) {
+    /* Force indentation to stay exactly the same on hover */
+    .dropdown-item:hover {
+        padding-left: 40px !important; 
+        background-color: transparent !important; 
+        transform: none !important; /* Stops shifting */
+    }
+
+    .nav-link:hover {
+        padding-left: 20px !important; 
+        transform: none !important;
+    }
+}
+
+/* 2. Fix Header Transparency (Stop seeing content behind header) */
+.site-header {
+    background-color: #0e2e1e !important; /* Force solid dark green */
+    opacity: 1 !important;
+    backdrop-filter: none !important; /* Remove glass effect */
+}
+
+/* 3. Fix Foreigner Page Text Overlap & Spilling */
+@media (max-width: 768px) {
+    .foreigner-section, 
+    .hero-section {
+        /* Let the section grow as tall as the text needs */
+        height: auto !important; 
+        min-height: 100vh; 
+        padding-bottom: 80px; /* Extra space at bottom so text isn't cut off */
+        overflow: visible !important; /* Allow content to be seen */
+    }
+
+    .foreigner-content {
+        margin-top: 50px; /* Push text down so it doesn't hit header */
+    }
+
+    /* Reduce font size slightly on mobile so it fits better */
+    .hero-title, 
+    .section-title {
+        font-size: 2.2rem !important; 
+        word-wrap: break-word;
+    }
+}
+
+/* 4. Fix Accounting System Buttons (Squashed Format) */
+@media (max-width: 768px) {
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: column !important; /* Stack them like a tower */
+        width: 100%;
+        align-items: center;
+        gap: 15px; /* Space between buttons */
+    }
+
+    .hero-buttons .btn {
+        width: 100% !important;      /* Full width */
+        max-width: 320px;            /* But not too wide */
+        margin: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;         /* Keeps text on one line */
+        height: 50px !important;     /* Fixed height to prevent squashing */
+    }
+}
