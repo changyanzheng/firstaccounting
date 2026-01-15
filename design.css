@@ -17,7 +17,7 @@
   --bg-emerald-dark: #0e2e1e;
 
   /* Gradients */
-  --grad-emerald: linear-gradient(to right, #059669, #14b8a6, #06b6d4); /* Emerald-Teal-Cyan */
+  --grad-emerald: linear-gradient(to right, #059669, #14b8a6, #06b6d4); 
   --grad-logo: linear-gradient(to bottom right, #10b981, #0d9488);
   
   /* Shadows */
@@ -390,59 +390,707 @@ a { text-decoration: none; color: inherit; }
     }
     .service-card-wide .card-desc { margin-bottom: 0; }
 }
+
 /* =========================================
-   FOREIGNER
+   FOREIGNER PAGE STYLES
    ========================================= */
-.foreigner-section {
-  position: relative; padding: 7rem 0; background-color: var(--slate-50);
-  overflow: hidden; border-top: 1px solid #e2e8f0;
-}
-.bg-blob {
-  position: absolute; top: 0; right: 0; width: 500px; height: 500px;
-  background-color: rgba(209, 250, 229, 0.5);
-  border-radius: 50%; filter: blur(64px);
-  transform: translate(50%, -50%);
-}
-.foreigner-layout { display: flex; flex-direction: column; gap: 4rem; align-items: center; }
-@media(min-width: 1024px) { .foreigner-layout { flex-direction: row; gap: 6rem; } }
 
-.foreigner-content { flex: 1; order: 2; }
-@media(min-width: 1024px) { .foreigner-content { order: 1; } }
-
-.badge-pill {
-  display: inline-block; padding: 0.25rem 0.75rem; margin-bottom: 1.5rem;
-  border-radius: 0.375rem; background-color: var(--primary-light);
-  color: #065f46; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+/* Banner (Original) */
+.foreigner-banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  height: 400px; /* <--- THIS WAS THE PROBLEM */
 }
 
-.feature-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2.5rem; }
-@media(min-width: 640px) { .feature-grid { grid-template-columns: repeat(3, 1fr); } }
-
-.feature-box {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  padding: 1rem; background-color: var(--white); border-radius: 0.75rem;
-  border: 1px solid #f1f5f9; box-shadow: var(--shadow-sm);
-  transition: border-color 0.3s;
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 95, 70, 0.6);
+  z-index: 1;
 }
-.feature-box:hover { border-color: #a7f3d0; }
-.emoji-icon { font-size: 1.875rem; margin-bottom: 0.5rem; }
-.feature-label { font-weight: 700; color: var(--slate-800); font-size: 0.875rem; }
 
-.foreigner-image-wrapper { flex: 1; order: 1; width: 100%; }
-@media(min-width: 1024px) { .foreigner-image-wrapper { order: 2; } }
-
-.image-card {
-  position: relative; border-radius: 1rem; overflow: hidden;
-  box-shadow: var(--shadow-lg); border: 4px solid var(--white);
-  transform: rotate(1deg); transition: transform 0.5s;
+.banner-content {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
 }
-.image-card:hover { transform: rotate(0); }
-.img-fluid { width: 100%; height: auto; display: block; object-fit: cover; }
-.image-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); }
-.image-caption { position: absolute; bottom: 1.5rem; left: 1.5rem; color: var(--white); }
-.caption-title { font-weight: 700; font-size: 1.125rem; }
-.caption-subtitle { font-size: 0.875rem; opacity: 0.9; }
 
+.banner-content h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* ================= NEW MODERN REQUIREMENTS SECTION ================= */
+.requirements-section {
+  background: #f8fafc;
+  padding: 80px 0;
+}
+
+/* Header */
+.req-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sub-pill {
+  display: inline-block;
+  background-color: #ecfdf5;
+  color: #059669;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.req-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.green-line {
+  width: 80px;
+  height: 4px;
+  background: #10b981;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Grid Layout */
+.requirements-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+@media (min-width: 768px) {
+  .requirements-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .requirements-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Modern Card */
+.req-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.req-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  border-color: #d1fae5;
+}
+
+/* Icon */
+.req-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: #f0fdf4;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.req-card:hover .req-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  background: #d1fae5;
+}
+
+/* Content */
+.req-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.req-content p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.req-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.req-content li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.req-content li::before {
+  content: "•";
+  color: #10b981;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Highlight Card */
+.highlight-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 1px solid #10b981;
+}
+
+/* CTA */
+.cta-box {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.ltn.primary {
+  display: inline-block;
+  background-color: #10b981;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 14px 0 rgba(16,185,129,0.39);
+  transition: all 0.3s ease;
+}
+
+.ltn.primary:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(16,185,129,0.5);
+}
+
+/* ================= WHO WE SERVE ================= */
+.who-we-serve {
+  position: relative;
+  background: url('whoweserve.jpg') center/cover no-repeat;
+  color: #ffffff;
+  padding: 80px 0;
+}
+
+.who-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom right, rgba(12, 123, 92, 0.92), rgba(6, 78, 59, 0.9));
+  z-index: 1;
+}
+
+.serve-layout {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Left: Text section */
+.serve-text {
+  flex: 1 1 40%;
+  text-align: left;
+}
+
+.serve-text h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.serve-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e5f6ee;
+  margin-bottom: 25px;
+}
+
+.serve-text h3 {
+  font-size: 1.3rem;
+  color: #c1f1dd;
+  font-weight: 700;
+}
+
+/* Right: Industry boxes */
+.industries-list {
+  flex: 1 1 50%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+}
+
+.industry-item {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-weight: 500;
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+  transition: all 0.25s ease;
+}
+
+.industry-item:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: scale(0.97);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .serve-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+  .serve-text {
+    text-align: center;
+  }
+  .industries-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .industries-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= EXPATRIATE TAX ================= */
+.expatriate-tax {
+  background: linear-gradient(to bottom right, #f4faf8, #e7f3ee);
+  padding: 90px 0;
+  color: #1a3b32;
+}
+
+.expat-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+.expat-header h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #125d48;
+  margin-bottom: 15px;
+}
+
+.expat-header .intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2a4e42;
+}
+
+.expat-layout {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.expat-text {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.expat-photo {
+  flex: 1 1 40%;
+  display: flex;
+  align-items: stretch;
+}
+
+.expat-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.expat-photo img:hover {
+  transform: scale(1.03);
+}
+
+.expat-text h3 {
+  font-size: 1.4rem;
+  color: #1f5e47;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.expat-services {
+  list-style: none;
+  padding-left: 0;
+}
+
+.expat-services li {
+  background: #ffffff;
+  margin-bottom: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  color: #1c3e33;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.expat-services li:hover {
+  background: #ecf7f3;
+  transform: translateX(5px);
+}
+
+/* ================= INTERNATIONAL CLIENTS ================= */
+.international-clients {
+  background: #f9fafb;
+  padding: 100px 0;
+}
+
+.clients-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Left side - Photo */
+.clients-photo {
+  flex: 0 0 45%;
+}
+
+.clients-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Right side - Text and list */
+.clients-text {
+  flex: 1;
+}
+
+.clients-text h2 {
+  color: #065f46;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.clients-text p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.country-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.country-list li {
+  font-size: 1.1rem;
+  color: #065f46;
+  font-weight: 600;
+  position: relative;
+  padding-left: 24px;
+}
+
+.country-list li::before {
+  content: "🌍";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .clients-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  .clients-photo {
+    flex: 1;
+    order: -1;
+  }
+  .country-list {
+    grid-template-columns: 1fr;
+  }
+  .clients-text h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ================= ACCOUNTING PAGE STYLES ================= */
+
+/* --- Accounting Services Section (Split Layout) --- */
+.acct-section {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+}
+
+.acct-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .acct-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Left Content (Sticky) */
+.acct-left {
+  flex: 1;
+  position: sticky;
+  top: 120px; /* Stick below header */
+}
+
+.acct-left h2 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.acct-left p {
+  font-size: 1.125rem;
+  color: #64748b;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Right Content (Grid Boxes) */
+.acct-right {
+  flex: 1.2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .acct-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.acct-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.acct-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #10b981; /* Emerald Top Border */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.acct-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  border-color: #cbd5e1;
+}
+
+.acct-box:hover::before {
+  transform: scaleX(1);
+}
+
+.acct-box h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.acct-box p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Process Section (Timeline/Steps) --- */
+.process-section {
+  padding: 6rem 0;
+  background-color: white;
+  border-top: 1px solid #e2e8f0;
+}
+
+.process-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .process-container {
+    flex-direction: row;
+    gap: 6rem;
+  }
+}
+
+/* Image Side */
+.process-image {
+  flex: 1;
+  width: 100%;
+}
+
+.process-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: rotate(-2deg);
+  transition: transform 0.5s ease;
+}
+
+.process-image:hover img {
+  transform: rotate(0deg);
+}
+
+/* Content Side */
+.process-content {
+  flex: 1;
+}
+
+.process-content h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.process-content h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #10b981;
+  border-radius: 2px;
+}
+
+/* Steps */
+.process-step {
+  margin-bottom: 2.5rem;
+  padding-left: 2.5rem;
+  border-left: 3px solid #e2e8f0;
+  position: relative;
+}
+
+.process-step:last-child {
+  margin-bottom: 0;
+  border-left-color: transparent; /* Stop line at last item */
+}
+
+.process-step::before {
+  content: "";
+  position: absolute;
+  left: -11px; /* Center on the 3px border */
+  top: 4px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 4px solid white;
+  box-shadow: 0 0 0 1px #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.process-step:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px #d1fae5;
+}
+
+.process-step h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.process-step p {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+}
 
 /* =========================================
    FOOTER
@@ -498,13 +1146,57 @@ a { text-decoration: none; color: inherit; }
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
-
 .delay-600 { animation-delay: 600ms; }
 
-/* Mobile Menu Logic */
-/* Mobile Menu - Final Layout Fix */
+
+/* =======================================================
+   NUCLEAR MOBILE FIXES (High Priority)
+   ======================================================= */
+
+/* 1. FIX FOREIGNER TEXT SPILLING (The "400px" Trap) */
+/* This forces the green banner to grow as tall as the text needs */
+.foreigner-banner, 
+.hero-section,
+.foreigner-section {
+    height: auto !important;
+    min-height: 100vh !important; /* Forces it to be at least full screen */
+    padding-bottom: 100px !important;
+    background-size: cover !important;
+    overflow: visible !important;
+}
+
+/* 2. FIX SQUASHED BUTTONS (Accounting Page) */
+/* Forces buttons to stack vertically on ANY screen smaller than a laptop */
 @media (max-width: 1024px) {
-    /* 1. Main Menu Container */
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+        margin-top: 30px !important;
+    }
+
+    .hero-buttons .btn {
+        width: 100% !important;
+        max-width: 300px !important; /* Limits width so they look like pills */
+        display: flex !important;
+        justify-content: center !important;
+        padding: 15px 0 !important;
+    }
+}
+
+/* 3. FIX HEADER TRANSPARENCY */
+.site-header {
+    background-color: #0e2e1e !important; /* Solid Dark Green */
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* 4. FIX MENU REACTION MOVEMENT */
+/* Mobile Menu Logic - Final Layout Fix */
+@media (max-width: 1024px) {
+    /* Main Menu Container */
     .main-nav {
         display: none;
         flex-direction: column;
@@ -525,7 +1217,7 @@ a { text-decoration: none; color: inherit; }
         display: flex;
     }
 
-    /* 2. Main Links (Home, About, Foreigner) */
+    /* Main Links (Home, About, Foreigner) */
     .nav-link {
         display: block;
         padding: 15px 20px; /* Add side padding */
@@ -535,7 +1227,7 @@ a { text-decoration: none; color: inherit; }
         width: 100%;
     }
 
-    /* 3. NEW FIX: Fix the Container stacking */
+    /* NEW FIX: Fix the Container stacking */
     .nav-item-dropdown {
         display: block !important; /* Forces vertical stacking */
         width: 100%;
@@ -543,14 +1235,14 @@ a { text-decoration: none; color: inherit; }
         margin: 0;
     }
 
-    /* 4. Fix the "Services" Title inside the dropdown */
+    /* Fix the "Services" Title inside the dropdown */
     .nav-item-dropdown .nav-link {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    /* 5. The Sub-Menu List (Indented) */
+    /* The Sub-Menu List (Indented) */
     .dropdown-menu {
         position: static;
         display: block;
@@ -565,7 +1257,7 @@ a { text-decoration: none; color: inherit; }
         transform: none;
     }
 
-    /* 6. Sub-Menu Items (The List) */
+    /* Sub-Menu Items (The List) */
     .dropdown-item {
         color: rgba(255,255,255,0.8) !important; /* Soft White */
         font-size: 0.95rem;
@@ -574,79 +1266,16 @@ a { text-decoration: none; color: inherit; }
         display: block;
     }
     
+    /* Stop Reaction Movement */
     .dropdown-item:hover {
         color: #34d399 !important;
-        background-color: rgba(255,255,255,0.05);
-    }
-}
-/* =========================================
-   FINAL MOBILE FIXES
-   (Paste this at the very bottom of design.css)
-   ========================================= */
-
-/* 1. Stop the "Reaction Movement" in Navigation */
-@media (max-width: 1024px) {
-    /* Force indentation to stay exactly the same on hover */
-    .dropdown-item:hover {
-        padding-left: 40px !important; 
-        background-color: transparent !important; 
-        transform: none !important; /* Stops shifting */
+        background-color: transparent !important;
+        padding-left: 40px !important; /* Locked padding */
+        transform: none !important;
     }
 
     .nav-link:hover {
-        padding-left: 20px !important; 
+        padding-left: 20px !important; /* Locked padding */
         transform: none !important;
-    }
-}
-
-/* 2. Fix Header Transparency (Stop seeing content behind header) */
-.site-header {
-    background-color: #0e2e1e !important; /* Force solid dark green */
-    opacity: 1 !important;
-    backdrop-filter: none !important; /* Remove glass effect */
-}
-
-/* 3. Fix Foreigner Page Text Overlap & Spilling */
-@media (max-width: 768px) {
-    .foreigner-section, 
-    .hero-section {
-        /* Let the section grow as tall as the text needs */
-        height: auto !important; 
-        min-height: 100vh; 
-        padding-bottom: 80px; /* Extra space at bottom so text isn't cut off */
-        overflow: visible !important; /* Allow content to be seen */
-    }
-
-    .foreigner-content {
-        margin-top: 50px; /* Push text down so it doesn't hit header */
-    }
-
-    /* Reduce font size slightly on mobile so it fits better */
-    .hero-title, 
-    .section-title {
-        font-size: 2.2rem !important; 
-        word-wrap: break-word;
-    }
-}
-
-/* 4. Fix Accounting System Buttons (Squashed Format) */
-@media (max-width: 768px) {
-    .hero-buttons {
-        display: flex !important;
-        flex-direction: column !important; /* Stack them like a tower */
-        width: 100%;
-        align-items: center;
-        gap: 15px; /* Space between buttons */
-    }
-
-    .hero-buttons .btn {
-        width: 100% !important;      /* Full width */
-        max-width: 320px;            /* But not too wide */
-        margin: 0 !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        white-space: nowrap;         /* Keeps text on one line */
-        height: 50px !important;     /* Fixed height to prevent squashing */
     }
 }
