@@ -31,13 +31,25 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { height: 100%; } 
+/* FIX WIDTH PROBLEM (Horizontal Scroll) */
+html, body { 
+    height: 100%; 
+    overflow-x: hidden; 
+    width: 100%;
+    margin: 0;
+} 
+
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--slate-900);
   line-height: 1.6;
   background-color: var(--white);
   -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* =========================================
@@ -105,7 +117,6 @@ a { text-decoration: none; color: inherit; }
 .site-header {
   position: sticky;
   top: 0;
-  /* FIX 1: HIGH Z-INDEX so menu is never hidden */
   z-index: 9999; 
   background-color: #0e2e1e !important; /* Solid Dark Green */
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -121,7 +132,7 @@ a { text-decoration: none; color: inherit; }
 
 /* Logo */
 .brand-logo { display: flex; align-items: center; gap: 0.75rem; color: var(--white); }
-.logo-img { height: 2.5rem; width: auto; object-fit: contain; }
+.logo-img { height: 2.2rem; width: auto; object-fit: contain; }
 .logo-text-group { display: flex; flex-direction: column; }
 .logo-title { font-weight: 700; font-size: 1.125rem; line-height: 1.25; }
 .logo-subtitle { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; color: #b3be23; text-transform: uppercase; }
@@ -178,12 +189,18 @@ a { text-decoration: none; color: inherit; }
 /* Mobile Menu Button */
 .header-actions { display: flex; align-items: center; gap: 1rem; }
 .mobile-menu-btn {
-  display: block; background: none; border: none; color: rgba(255,255,255,0.9);
+  display: block; background: none; border: none; color: #ffffff;
   padding: 0.5rem; cursor: pointer;
-  z-index: 10001; /* Above header */
+  z-index: 10001;
+}
+
+/* HIDE THE QUOTE BUTTON ON MOBILE SO MENU IS VISIBLE */
+@media(max-width: 1024px) {
+    .header-actions .btn {
+        display: none !important;
+    }
 }
 @media(min-width: 1024px) { .mobile-menu-btn { display: none; } }
-@media(max-width: 640px) { .header-actions .btn { display: none; } }
 
 /* =========================================
    4. MOBILE MENU LOGIC (Fixed & Stable)
@@ -275,7 +292,7 @@ a { text-decoration: none; color: inherit; }
 }
 .hero-slideshow {
   position: absolute; inset: 0; z-index: 0;
-  /* FIX 2: Default Image so photo is seen even if animation stops */
+  /* FIX: Default Image */
   background-image: url('home1.jpg'); 
   background-size: cover; background-position: center;
   animation: slideShow 24s infinite;
@@ -295,11 +312,13 @@ a { text-decoration: none; color: inherit; }
 .hero-content {
   position: relative; z-index: 10;
   display: flex; flex-direction: column; align-items: flex-start; text-align: left;
+  width: 100%;
 }
 .hero-title {
   font-size: 3rem; font-weight: 800; color: var(--white);
   line-height: 1.1; margin-bottom: 2rem;
   text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  word-wrap: break-word;
 }
 @media(min-width: 768px) { .hero-title { font-size: 3.75rem; } }
 
@@ -310,8 +329,8 @@ a { text-decoration: none; color: inherit; }
   font-weight: 300; line-height: 1.75;
 }
 
-.hero-buttons { display: flex; flex-direction: column; gap: 1rem; }
-@media(min-width: 640px) { .hero-buttons { flex-direction: row; } }
+.hero-buttons { display: flex; flex-direction: column; gap: 1rem; width: 100%;}
+@media(min-width: 640px) { .hero-buttons { flex-direction: row; width: auto; } }
 
 .hero-features-card {
   display: inline-flex; flex-direction: column; gap: 1rem;
@@ -343,7 +362,7 @@ a { text-decoration: none; color: inherit; }
   background-image: linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px);
   background-size: 40px 40px;
 }
-.section-title { font-size: 2.25rem; font-weight: 700; color: var(--slate-900); margin-bottom: 1.5rem; }
+.section-title { font-size: 2.25rem; font-weight: 700; color: var(--slate-900); margin-bottom: 1.5rem; word-wrap: break-word;}
 @media(min-width: 768px) { .section-title { font-size: 3rem; } }
 .gradient-text-emerald { background: var(--grad-emerald); -webkit-background-clip: text; color: transparent; background-clip: text; }
 
@@ -392,7 +411,7 @@ a { text-decoration: none; color: inherit; }
 .foreigner-layout { display: flex; flex-direction: column; gap: 4rem; align-items: center; }
 @media(min-width: 1024px) { .foreigner-layout { flex-direction: row; gap: 6rem; } }
 
-.foreigner-content { flex: 1; order: 2; }
+.foreigner-content { flex: 1; order: 2; width: 100%; }
 @media(min-width: 1024px) { .foreigner-content { order: 1; } }
 
 .badge-pill {
@@ -414,8 +433,8 @@ a { text-decoration: none; color: inherit; }
 .banner-overlay {
   position: absolute; inset: 0; background: rgba(6, 95, 70, 0.6); z-index: 1;
 }
-.banner-content { position: relative; z-index: 2; margin: 0 auto; }
-.banner-content h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; }
+.banner-content { position: relative; z-index: 2; margin: 0 auto; width: 100%; }
+.banner-content h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; word-wrap: break-word;}
 
 
 /* =========================================
@@ -550,9 +569,9 @@ a { text-decoration: none; color: inherit; }
    13. MASTER MOBILE FIXES
    ======================================================= */
 
-/* PROBLEM 3 (Revised): FIX PHOTO FORMAT (Stop tilts/rotation on mobile) */
+/* PROBLEM 3 (Revised): FIX PHOTO FORMAT & LAYOUTS */
 @media (max-width: 1024px) {
-    /* FIX 4: Stop Accounting Overlay. Static position prevents overlapping. */
+    /* FIX: Stop Accounting Overlay. Static position prevents overlapping. */
     .acct-left {
         position: static !important; 
         margin-bottom: 30px;
@@ -562,7 +581,7 @@ a { text-decoration: none; color: inherit; }
         flex-direction: column;
     }
 
-    /* Stop rotation effects on mobile images */
+    /* FIX: Stop rotation effects on mobile images to fit width */
     .industry-item:hover,
     .req-card:hover,
     .image-card,
