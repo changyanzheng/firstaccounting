@@ -116,11 +116,11 @@ a { text-decoration: none; color: inherit; }
 .btn-sm { padding: 0.625rem 1.5rem; font-size: 0.875rem; }
 .btn-lg { padding: 1rem 2rem; font-size: 1rem; min-width: 180px; }
 
-/* FIX: New Extra Large Smooth Button (For View Solution) */
+/* FIX: "View Solution" Button Formatting */
 .btn-xl-smooth {
-  padding: 1.25rem 3rem;
-  font-size: 1.125rem;
-  min-width: 220px;
+  padding: 1rem 2.5rem; /* Balanced padding */
+  font-size: 1rem;
+  min-width: 180px; /* Consistent width */
   background-color: var(--primary);
   color: var(--white);
   border-radius: 9999px;
@@ -129,14 +129,25 @@ a { text-decoration: none; color: inherit; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 700; /* Bold text */
   cursor: pointer;
   border: none;
+  white-space: nowrap; /* CRITICAL: Prevents text from breaking to next line */
+  line-height: 1;
 }
+
 .btn-xl-smooth:hover {
   background-color: var(--primary-hover);
   transform: scale(1.05) translateY(-3px);
   box-shadow: 0 20px 40px -5px rgba(16,185,129,0.5);
+}
+
+/* On mobile, make buttons stack nicely */
+@media (max-width: 640px) {
+    .btn-xl-smooth {
+        width: 100%; /* Full width looks better on phone */
+        margin-bottom: 10px;
+    }
 }
 
 /* =========================================
@@ -168,7 +179,7 @@ a { text-decoration: none; color: inherit; }
 /* Header Actions */
 .header-actions { display: flex; align-items: center; gap: 1rem; }
 
-/* FIX: Mobile Menu Button (CSS Hamburger) */
+/* Mobile Menu Button (CSS Hamburger) */
 .mobile-menu-btn {
   display: none;
   background: transparent;
@@ -276,7 +287,7 @@ a { text-decoration: none; color: inherit; }
     }
     .main-nav.active { display: flex !important; }
 
-    /* Links - Block level, fixed padding */
+    /* Links */
     .nav-link {
         display: block;
         padding: 15px 20px !important;
@@ -284,11 +295,11 @@ a { text-decoration: none; color: inherit; }
         color: #ffffff !important;
         font-weight: 600;
         width: 100%;
-        transition: none !important; /* Stop sliding animation */
+        transition: none !important; 
         transform: none !important;
     }
 
-    /* Submenu - Static flow */
+    /* Submenu */
     .nav-item-dropdown {
         display: block !important;
         width: 100%;
@@ -298,7 +309,20 @@ a { text-decoration: none; color: inherit; }
         display: flex; justify-content: space-between; align-items: center;
     }
     
-    /* Dropdown - No floating */
+    /* FIX: THE BIG ARROW SOLUTION */
+    /* This forces the arrow image/icon to be small on mobile */
+    .nav-item-dropdown .arrow-icon,
+    .nav-item-dropdown img {
+        width: 16px !important;
+        height: 16px !important;
+        max-width: 16px !important;
+        min-width: 16px !important; /* Force it to stay small */
+        object-fit: contain;
+        transform: none !important; /* Remove rotation if it messes up layout */
+        margin-left: auto;
+    }
+
+    /* Dropdown */
     .dropdown-menu {
         position: static !important;
         display: block;
@@ -314,14 +338,13 @@ a { text-decoration: none; color: inherit; }
 
     .dropdown-item {
         color: rgba(255,255,255,0.8) !important;
-        padding: 12px 0 12px 40px !important; /* Indented */
+        padding: 12px 0 12px 40px !important;
         border-bottom: 1px solid rgba(255,255,255,0.05);
         display: block;
         transition: none !important;
         transform: none !important;
     }
     
-    /* Touch State */
     .nav-link:hover, .nav-link:active,
     .dropdown-item:hover, .dropdown-item:active {
         color: #34d399 !important;
@@ -609,7 +632,7 @@ a { text-decoration: none; color: inherit; }
 @media(min-width: 1024px) {
     .acct-container { 
         flex-direction: row; 
-        align-items: flex-start; /* The Fix */
+        align-items: flex-start; /* The Fix for overlay */
     }
     .acct-left { position: sticky; top: 100px; flex: 1; }
 }
@@ -687,7 +710,7 @@ a { text-decoration: none; color: inherit; }
 .delay-600 { animation-delay: 600ms; }
 
 /* =======================================================
-   11. FINAL MOBILE SAFETY NET (Generic Fixes)
+   11. FINAL MOBILE SAFETY NET
    ======================================================= */
 @media (max-width: 768px) {
     /* Stack Buttons */
